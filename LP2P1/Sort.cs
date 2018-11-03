@@ -8,9 +8,6 @@ namespace LP2P1
 {
     public static class Sort
     {
-        public static int SortByID(IEnumerable<Game>)
-        {
-        }
     }
 }
 
