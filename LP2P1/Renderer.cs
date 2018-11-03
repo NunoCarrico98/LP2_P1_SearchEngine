@@ -14,6 +14,7 @@ namespace LP2P1
             Console.WriteLine("1. Show game info");
             Console.WriteLine("2. Search");
             Console.WriteLine("3. Exit");
+            Console.Write("> ");
         }
     }
 }

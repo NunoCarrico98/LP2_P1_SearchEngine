@@ -22,7 +22,6 @@ namespace LP2P1
             {
                 // Render Menu Interface
                 render.MainMenuInterface();
-                Console.Write("> ");
                 // Save user input to variable input
                 input = Console.ReadLine();
                 // Define what program does with input
