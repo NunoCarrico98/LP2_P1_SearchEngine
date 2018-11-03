@@ -20,6 +20,10 @@ namespace LP2P1
         /// </summary>
         public DateTime ReleseDate { get; }
         /// <summary>
+        /// Property that defines the minimum age to be able to play the game.
+        /// </summary>
+        public int RequiredAge { get; }
+        /// <summary>
         /// Property that defines the number of DLCs released.
         /// </summary>
         public int DLCCount { get; }
@@ -98,10 +102,44 @@ namespace LP2P1
         /// <summary>
         /// Property that defines the game's main image.
         /// </summary>
-        public Uri HeaaderImage { get; }
+        public Uri HeaderImage { get; }
         /// <summary>
         /// Property that defines the game's website
         /// </summary>
         public Uri Website { get; }
+
+        public Game(int id, string name, DateTime releaseDate, int requiredAge,
+            int dlcCount, int recommendationCount, int screenshotCount, 
+            int owners, int numberOfPlayers, int achivementCount, 
+            bool controllerSupport, bool platformWindows, bool platformLinux, 
+            bool platformMac, bool categorySingleplayer, bool categoryMultiplayer, 
+            bool categoryCoop, bool categoryIncludeLevelEditor, 
+            bool categoryVRSupport, Uri supportURL, string aboutText, 
+            Uri headerImage, Uri website)
+        {
+            ID = id;
+            Name = name;
+            ReleseDate = releaseDate;
+            RequiredAge = requiredAge;
+            DLCCount = dlcCount;
+            RecomendationCount = recommendationCount;
+            ScreenshotCount = screenshotCount;
+            Owners = owners;
+            NumberOfPlayers = numberOfPlayers;
+            AchivementCount = achivementCount;
+            ControllerSupport = controllerSupport;
+            PlatformWindows = platformWindows;
+            PlatformLinux = platformLinux;
+            PlatformMac = platformMac;
+            CategorySingleplayer = categorySingleplayer;
+            CategoryMultiplayer = categoryMultiplayer;
+            CategoryCoop = categoryCoop;
+            CategoryIncludeLevelEditor = categoryIncludeLevelEditor;
+            CategoryVRSupport = categoryVRSupport;
+            SupportURL = supportURL;
+            AboutText = aboutText;
+            HeaderImage = headerImage;
+            Website = website;
+        }
     }
 }
