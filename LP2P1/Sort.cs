@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace LP2P1
 {
-    public static class Sort
+    public class Sort<T> : IComparer<T>
     {
+        int IComparer<T>.Compare(T x, T y)
+        {
+        }
     }
 }
 
