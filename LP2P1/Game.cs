@@ -118,7 +118,7 @@ namespace LP2P1
             Name = subStrings[1];
             if (DateTime.TryParse(subStrings[2], out DateTime dt))
             {
-                ReleseDate = Convert.ToDateTime(subStrings[2]);
+                ReleseDate = dt;
             }
             else
             {
