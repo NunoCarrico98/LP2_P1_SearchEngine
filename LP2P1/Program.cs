@@ -7,6 +7,9 @@ namespace LP2P1
     {
         static void Main(string[] args)
         {
+            /* Create singleton class */
+            Renderer render = new Renderer();
+
             /* Change Output encoding */
             Console.OutputEncoding = Encoding.UTF8;
 
