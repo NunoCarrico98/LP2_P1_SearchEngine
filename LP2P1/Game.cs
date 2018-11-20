@@ -143,25 +143,14 @@ namespace LP2P1
 
             if (Uri.TryCreate(subStrings[21], UriKind.Absolute, out Uri supportLink))
                 SupportURL = supportLink;
-            else
-                SupportURL = null;
 
             AboutText = subStrings[22];
 
             if (Uri.TryCreate(subStrings[23], UriKind.Absolute, out Uri imageLink))
-            {
                 HeaderImage = imageLink;
-                DownloadImage();
-            }
-            else
-            {
-                HeaderImage = null;
-            }
 
-            if (Uri.TryCreate(subStrings[23], UriKind.Absolute, out Uri websiteLink))
+            if (Uri.TryCreate(subStrings[24], UriKind.Absolute, out Uri websiteLink))
                 Website = websiteLink;
-            else
-                Website = null;
         }
 
         public void DownloadImage()
@@ -169,7 +158,7 @@ namespace LP2P1
             using (WebClient client = new WebClient())
             {
                 if(HeaderImage != null)
-                    client.DownloadFile(HeaderImage, $"Images/image{ID}.jpg");
+                    client.DownloadFile(HeaderImage, @"c:\temp\image.jpg");
             }
         }
 
@@ -210,7 +199,7 @@ namespace LP2P1
             sb.AppendFormat($"Support URL:  + {SupportURL.AbsolutePath}");
             sb.AppendFormat($"About the Game:  + {AboutText}");
             sb.AppendFormat($"Header Image:  + " +
-                $"{Path.GetDirectoryName($"Images/image{ID}.jpg")}");
+                $"{Path.GetDirectoryName(@"c:\temp\image.jpg")}");
             sb.AppendFormat($"Support URL:  + {Website.AbsolutePath}");
 
             return sb.ToString();

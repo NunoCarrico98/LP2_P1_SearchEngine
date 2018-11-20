@@ -7,6 +7,7 @@ namespace LP2P1
     class ReadFromFile
     {
         public string FileName { get; }
+
         public ReadFromFile(string fileName)
         {
             FileName = fileName;
@@ -43,6 +44,7 @@ namespace LP2P1
             {
                 gameList.Add(game);
             }
+
             return gameList;
         }
     }

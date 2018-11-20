@@ -15,6 +15,7 @@ namespace LP2P1
 
             /* Create and Initialise a MainMenu instance */
             MainMenu mainMenu = new MainMenu(readFile.Read());
+            Console.WriteLine("teste2");
 
             /* Ask for user input in main menu */
             mainMenu.GetMenuOption();
