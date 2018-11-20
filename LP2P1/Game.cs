@@ -18,7 +18,7 @@ namespace LP2P1
         /// <summary>
         /// Property that defines the release date.
         /// </summary>
-        public DateTime ReleseDate { get; }
+        public DateTime ReleaseDate { get; }
         /// <summary>
         /// Property that defines the minimum age to be able to play the game.
         /// </summary>
@@ -54,7 +54,7 @@ namespace LP2P1
         /// <summary>
         /// Property that defines the number of achivements the game has.
         /// </summary>
-        public int AchivementCount { get; }
+        public int AchievementCount { get; }
         /// <summary>
         /// Property that defines if the game has controller support.
         /// </summary>
@@ -109,8 +109,8 @@ namespace LP2P1
         public Uri Website { get; }
 
         public Game(int id, string name, DateTime releaseDate, int requiredAge,
-            int dlcCount, int recommendationCount, int screenshotCount, 
-            int owners, int numberOfPlayers, int achivementCount, 
+            int dlcCount, int metacritic, int recommendationCount, int screenshotCount, 
+            int owners, int numberOfPlayers, int achievementCount, 
             bool controllerSupport, bool platformWindows, bool platformLinux, 
             bool platformMac, bool categorySingleplayer, bool categoryMultiplayer, 
             bool categoryCoop, bool categoryIncludeLevelEditor, 
@@ -119,14 +119,14 @@ namespace LP2P1
         {
             ID = id;
             Name = name;
-            ReleseDate = releaseDate;
+            ReleaseDate = releaseDate;
             RequiredAge = requiredAge;
             DLCCount = dlcCount;
             RecomendationCount = recommendationCount;
             ScreenshotCount = screenshotCount;
             Owners = owners;
             NumberOfPlayers = numberOfPlayers;
-            AchivementCount = achivementCount;
+            AchievementCount = achievementCount;
             ControllerSupport = controllerSupport;
             PlatformWindows = platformWindows;
             PlatformLinux = platformLinux;

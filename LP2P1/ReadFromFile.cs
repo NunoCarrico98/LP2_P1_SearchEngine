@@ -7,7 +7,6 @@ namespace LP2P1
     class ReadFromFile
     {
         public string FileName { get; }
-
         public ReadFromFile(string fileName)
         {
             FileName = fileName;
@@ -15,6 +14,7 @@ namespace LP2P1
 
         public IEnumerable<Game> Read()
         {
+            HashSet<Game> gameHashset = new HashSet<Game>();
             List<Game> gameList = new List<Game>();
 
             /* If file doesn't exist */
@@ -62,7 +62,7 @@ namespace LP2P1
                     Uri headerImage = new Uri(subStrings[23]);
                     Uri website = new Uri(subStrings[24]);
 
-                    gameList.Add(new Game(id, name, releaseDate, dlcCount, 
+                    gameHashset.Add(new Game(id, name, releaseDate, dlcCount, 
                         metacritic, movieCount, recommendationCount, screenshotCount,
                         owners, numberOfPlayers, achievementCount, controllerSupport,
                         platformWindows, platformLinux, platformMac, 
@@ -70,6 +70,11 @@ namespace LP2P1
                         categoryIncludeLevelEditar, categoryVRSupport,
                         supportURL, aboutText, headerImage, website));
                 }
+            }
+
+            foreach (Game game in gameHashset)
+            {
+                gameList.Add(game);
             }
 
             return gameList;
