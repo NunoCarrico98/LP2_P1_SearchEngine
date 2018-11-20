@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Text;
+using System.Net;
+using System.IO;
 
 namespace LP2P1
 {
@@ -139,7 +142,64 @@ namespace LP2P1
             SupportURL = supportURL;
             AboutText = aboutText;
             HeaderImage = headerImage;
+            DownloadImage();
             Website = website;
+        }
+
+        public void DownloadImage()
+        {
+            using (WebClient client = new WebClient())
+            {
+                client.DownloadFile(HeaderImage, $"Images/image{ID}.jpg");
+            }
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendFormat($"Game ID: {ID}");
+            sb.AppendFormat($"Name: {Name}");
+            sb.AppendFormat($"Release Date: {ReleseDate.Date.ToString("d")}");
+            sb.AppendFormat($"Required Age to play: {RequiredAge}");
+            sb.AppendFormat($"Number of DLCs: {DLCCount}");
+            sb.AppendFormat($"Number of Recomendations: {RecomendationCount}");
+            sb.AppendFormat($"Number of Screenshots Taken: {ScreenshotCount}");
+            sb.AppendFormat($"Number of People who own the Game: {Owners}");
+            sb.AppendFormat($"Number of Concurrent Players: {NumberOfPlayers}");
+            sb.AppendFormat($"Number of Achivements: {AchivementCount}");
+            sb.AppendFormat($"Does it support controller: " +
+                $"{ToYesOrNoString(ControllerSupport)}");
+            sb.AppendFormat($"Does it support Windows: " +
+                $"{ToYesOrNoString(PlatformWindows)}");
+            sb.AppendFormat($"Does it support Windows: " +
+                $"{ToYesOrNoString(PlatformWindows)}");
+            sb.AppendFormat($"Does it support Linux: " +
+                $"{ToYesOrNoString(PlatformLinux)}");
+            sb.AppendFormat($"Does it support Mac: " +
+                $"{ToYesOrNoString(PlatformMac)}");
+            sb.AppendFormat($"Does it have a Singleplayer mode: " +
+                $"{ToYesOrNoString(CategorySingleplayer)}");
+            sb.AppendFormat($"Does it have a Multiplayer mode: " +
+                $"{ToYesOrNoString(CategoryMultiplayer)}");
+            sb.AppendFormat($"Does it have a Cooperation mode: " +
+                $"{ToYesOrNoString(CategoryCoop)}");
+            sb.AppendFormat($"Does it have a level editor: " +
+                $"{ToYesOrNoString(CategoryIncludeLevelEditor)}");
+            sb.AppendFormat($"Does it have VR Support: " +
+                $"{ToYesOrNoString(CategoryVRSupport)}");
+            sb.AppendFormat($"Support URL:  + {SupportURL.AbsolutePath}");
+            sb.AppendFormat($"About the Game:  + {AboutText}");
+            sb.AppendFormat($"Header Image:  + " +
+                $"{Path.GetDirectoryName($"Images/image{ID}.jpg")}");
+            sb.AppendFormat($"Support URL:  + {Website.AbsolutePath}");
+
+            return sb.ToString(); 
+        }
+
+        public string ToYesOrNoString(bool value)
+        {
+            return value ? "Yes" : "No";
         }
     }
 }
