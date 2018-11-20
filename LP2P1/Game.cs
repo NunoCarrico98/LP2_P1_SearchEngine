@@ -166,53 +166,53 @@ namespace LP2P1
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendFormat($"Game ID: {ID}");
-            sb.AppendFormat($"Name: {Name}");
+            sb.AppendFormat($"Game ID: {ID}\n");
+            sb.AppendFormat($"Name: {Name}\n");
 
             if (ReleaseDate != null)
-                sb.AppendFormat($"Release Date: {ReleaseDate.Date.ToString("d")}");
+                sb.AppendFormat($"Release Date: {ReleaseDate.Date.ToString("d")}\n");
 
-            sb.AppendFormat($"Required Age to play: {RequiredAge}");
-            sb.AppendFormat($"Number of DLCs: {DLCCount}");
-            sb.AppendFormat($"Number of Recomendations: {RecommendationCount}");
-            sb.AppendFormat($"Number of Screenshots Taken: {ScreenshotCount}");
-            sb.AppendFormat($"Number of People who own the Game: {Owners}");
-            sb.AppendFormat($"Number of Concurrent Players: {NumberOfPlayers}");
-            sb.AppendFormat($"Number of Achivements: {AchievementCount}");
+            sb.AppendFormat($"Required Age to play: {RequiredAge}\n");
+            sb.AppendFormat($"Number of DLCs: {DLCCount}\n");
+            sb.AppendFormat($"Number of Recomendations: {RecommendationCount}\n");
+            sb.AppendFormat($"Number of Screenshots Taken: {ScreenshotCount}\n");
+            sb.AppendFormat($"Number of People who own the Game: {Owners}\n");
+            sb.AppendFormat($"Number of Concurrent Players: {NumberOfPlayers}\n");
+            sb.AppendFormat($"Number of Achivements: {AchievementCount}\n");
             sb.AppendFormat($"Does it support controller: " +
-                $"{ToYesOrNoString(ControllerSupport)}");
+                $"{ToYesOrNoString(ControllerSupport)}\n");
             sb.AppendFormat($"Does it support Windows: " +
-                $"{ToYesOrNoString(PlatformWindows)}");
+                $"{ToYesOrNoString(PlatformWindows)}\n");
             sb.AppendFormat($"Does it support Windows: " +
-                $"{ToYesOrNoString(PlatformWindows)}");
+                $"{ToYesOrNoString(PlatformWindows)}\n");
             sb.AppendFormat($"Does it support Linux: " +
-                $"{ToYesOrNoString(PlatformLinux)}");
+                $"{ToYesOrNoString(PlatformLinux)}\n");
             sb.AppendFormat($"Does it support Mac: " +
-                $"{ToYesOrNoString(PlatformMac)}");
+                $"{ToYesOrNoString(PlatformMac)}\n");
             sb.AppendFormat($"Does it have a Singleplayer mode: " +
-                $"{ToYesOrNoString(CategorySingleplayer)}");
+                $"{ToYesOrNoString(CategorySingleplayer)}\n");
             sb.AppendFormat($"Does it have a Multiplayer mode: " +
-                $"{ToYesOrNoString(CategoryMultiplayer)}");
+                $"{ToYesOrNoString(CategoryMultiplayer)}\n");
             sb.AppendFormat($"Does it have a Cooperation mode: " +
-                $"{ToYesOrNoString(CategoryCoop)}");
+                $"{ToYesOrNoString(CategoryCoop)}\n");
             sb.AppendFormat($"Does it have a level editor: " +
-                $"{ToYesOrNoString(CategoryIncludeLevelEditor)}");
+                $"{ToYesOrNoString(CategoryIncludeLevelEditor)}\n");
             sb.AppendFormat($"Does it have VR Support: " +
-                $"{ToYesOrNoString(CategoryVRSupport)}");
+                $"{ToYesOrNoString(CategoryVRSupport)}\n");
 
             if(SupportURL != null)
-                sb.AppendFormat($"Support URL:  + {SupportURL.AbsolutePath}");
+                sb.AppendFormat($"Support URL:  + {SupportURL.AbsolutePath}\n");
 
-            sb.AppendFormat($"About the Game:  + {AboutText}");
+            sb.AppendFormat($"About the Game:  + {AboutText}\n");
 
             if (HeaderImage != null)
             {
                 sb.AppendFormat($"Header Image: " +
-                    $"{Path.GetDirectoryName("image.jpg")}");
+                    $"{Path.GetDirectoryName("image.jpg")}\n");
             }
 
             if(Website != null)
-                sb.AppendFormat($"Support URL:  + {Website.AbsolutePath}");
+                sb.AppendFormat($"Support URL:  + {Website.AbsolutePath}\n");
 
             return sb.ToString();
         }
