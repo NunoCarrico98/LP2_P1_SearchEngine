@@ -41,7 +41,7 @@ namespace LP2P1
         /// <summary>
         /// Property that defines the number of recommendations.
         /// </summary>
-        public int RecomendationCount { get; }
+        public int RecommendationCount { get; }
         /// <summary>
         /// Property that defines the number of screenshots.
         /// </summary>
@@ -111,39 +111,42 @@ namespace LP2P1
         /// </summary>
         public Uri Website { get; }
 
-        public Game(int id, string name, DateTime releaseDate, int requiredAge,
-            int dlcCount, int recommendationCount, int screenshotCount, 
-            int owners, int numberOfPlayers, int achivementCount, 
-            bool controllerSupport, bool platformWindows, bool platformLinux, 
-            bool platformMac, bool categorySingleplayer, bool categoryMultiplayer, 
-            bool categoryCoop, bool categoryIncludeLevelEditor, 
-            bool categoryVRSupport, Uri supportURL, string aboutText, 
-            Uri headerImage, Uri website)
+        public Game(string[] subStrings)
         {
-            ID = id;
-            Name = name;
-            ReleseDate = releaseDate;
-            RequiredAge = requiredAge;
-            DLCCount = dlcCount;
-            RecomendationCount = recommendationCount;
-            ScreenshotCount = screenshotCount;
-            Owners = owners;
-            NumberOfPlayers = numberOfPlayers;
-            AchivementCount = achivementCount;
-            ControllerSupport = controllerSupport;
-            PlatformWindows = platformWindows;
-            PlatformLinux = platformLinux;
-            PlatformMac = platformMac;
-            CategorySingleplayer = categorySingleplayer;
-            CategoryMultiplayer = categoryMultiplayer;
-            CategoryCoop = categoryCoop;
-            CategoryIncludeLevelEditor = categoryIncludeLevelEditor;
-            CategoryVRSupport = categoryVRSupport;
-            SupportURL = supportURL;
-            AboutText = aboutText;
-            HeaderImage = headerImage;
+            // Save ID from the first subString
+            ID = Convert.ToInt32(subStrings[0]);
+            Name = subStrings[1];
+            if (DateTime.TryParse(subStrings[2], out DateTime dt))
+            {
+                ReleseDate = Convert.ToDateTime(subStrings[2]);
+            }
+            else
+            {
+                ReleseDate = DateTime.MinValue;
+            }
+            RequiredAge = Convert.ToInt32(subStrings[3]);
+            DLCCount = Convert.ToInt32(subStrings[4]);
+            MetaCritic = Convert.ToInt32(subStrings[5]);
+            MovieCount = Convert.ToInt32(subStrings[6]);
+            RecommendationCount = Convert.ToInt32(subStrings[7]);
+            ScreenshotCount = Convert.ToInt32(subStrings[8]);
+            Owners = Convert.ToInt32(subStrings[9]);
+            NumberOfPlayers = Convert.ToInt32(subStrings[10]);
+            AchivementCount = Convert.ToInt32(subStrings[11]);
+            ControllerSupport = Convert.ToBoolean(subStrings[12]);
+            PlatformWindows = Convert.ToBoolean(subStrings[13]);
+            PlatformLinux = Convert.ToBoolean(subStrings[14]);
+            PlatformMac = Convert.ToBoolean(subStrings[15]);
+            CategorySingleplayer = Convert.ToBoolean(subStrings[16]);
+            CategoryMultiplayer = Convert.ToBoolean(subStrings[17]);
+            CategoryCoop = Convert.ToBoolean(subStrings[18]);
+            CategoryIncludeLevelEditor = Convert.ToBoolean(subStrings[19]);
+            CategoryVRSupport = Convert.ToBoolean(subStrings[20]);
+            SupportURL = new Uri(subStrings[21]);
+            AboutText = subStrings[22];
+            HeaderImage = new Uri(subStrings[23]);
             DownloadImage();
-            Website = website;
+            Website = new Uri(subStrings[24]);
         }
 
         public void DownloadImage()
@@ -163,7 +166,7 @@ namespace LP2P1
             sb.AppendFormat($"Release Date: {ReleseDate.Date.ToString("d")}");
             sb.AppendFormat($"Required Age to play: {RequiredAge}");
             sb.AppendFormat($"Number of DLCs: {DLCCount}");
-            sb.AppendFormat($"Number of Recomendations: {RecomendationCount}");
+            sb.AppendFormat($"Number of Recomendations: {RecommendationCount}");
             sb.AppendFormat($"Number of Screenshots Taken: {ScreenshotCount}");
             sb.AppendFormat($"Number of People who own the Game: {Owners}");
             sb.AppendFormat($"Number of Concurrent Players: {NumberOfPlayers}");
@@ -194,7 +197,7 @@ namespace LP2P1
                 $"{Path.GetDirectoryName($"Images/image{ID}.jpg")}");
             sb.AppendFormat($"Support URL:  + {Website.AbsolutePath}");
 
-            return sb.ToString(); 
+            return sb.ToString();
         }
 
         public string ToYesOrNoString(bool value)
