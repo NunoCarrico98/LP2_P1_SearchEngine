@@ -116,14 +116,12 @@ namespace LP2P1
             // Save ID from the first subString
             ID = Convert.ToInt32(subStrings[0]);
             Name = subStrings[1];
+
             if (DateTime.TryParse(subStrings[2], out DateTime dt))
-            {
                 ReleseDate = dt;
-            }
             else
-            {
                 ReleseDate = DateTime.MinValue;
-            }
+
             RequiredAge = Convert.ToInt32(subStrings[3]);
             DLCCount = Convert.ToInt32(subStrings[4]);
             MetaCritic = Convert.ToInt32(subStrings[5]);
@@ -142,18 +140,36 @@ namespace LP2P1
             CategoryCoop = Convert.ToBoolean(subStrings[18]);
             CategoryIncludeLevelEditor = Convert.ToBoolean(subStrings[19]);
             CategoryVRSupport = Convert.ToBoolean(subStrings[20]);
-            SupportURL = new Uri(subStrings[21]);
+
+            if (Uri.TryCreate(subStrings[21], UriKind.Absolute, out Uri supportLink))
+                SupportURL = supportLink;
+            else
+                SupportURL = null;
+
             AboutText = subStrings[22];
-            HeaderImage = new Uri(subStrings[23]);
-            DownloadImage();
-            Website = new Uri(subStrings[24]);
+
+            if (Uri.TryCreate(subStrings[23], UriKind.Absolute, out Uri imageLink))
+            {
+                HeaderImage = imageLink;
+                DownloadImage();
+            }
+            else
+            {
+                HeaderImage = null;
+            }
+
+            if (Uri.TryCreate(subStrings[23], UriKind.Absolute, out Uri websiteLink))
+                Website = websiteLink;
+            else
+                Website = null;
         }
 
         public void DownloadImage()
         {
             using (WebClient client = new WebClient())
             {
-                client.DownloadFile(HeaderImage, $"Images/image{ID}.jpg");
+                if(HeaderImage != null)
+                    client.DownloadFile(HeaderImage, $"Images/image{ID}.jpg");
             }
         }
 

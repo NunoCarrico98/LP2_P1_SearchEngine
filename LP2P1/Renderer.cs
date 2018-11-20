@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LP2P1
 {
@@ -14,6 +10,13 @@ namespace LP2P1
             Console.WriteLine("1. Show game info");
             Console.WriteLine("2. Search");
             Console.WriteLine("3. Exit");
+            Console.Write("> ");
+        }
+
+        public void RenderMainMenuOption1()
+        {
+            Console.Clear();
+            Console.WriteLine("Please input a game ID.");
             Console.Write("> ");
         }
     }

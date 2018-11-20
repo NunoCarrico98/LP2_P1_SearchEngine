@@ -8,7 +8,10 @@ namespace LP2P1
 {
     public class MainMenu
     {
-        IEnumerable<Game> gameList;
+        private readonly IEnumerable<Game> gameList;
+
+        /* Variable to define and initialise a renderer */
+        private readonly Renderer render = new Renderer();
 
         public MainMenu(IEnumerable<Game> gameList)
         {
@@ -17,9 +20,6 @@ namespace LP2P1
 
         public void GetMenuOption()
         {
-            /* Variable to define and initialise a renderer */
-            Renderer render = new Renderer();
-
             /* Create and Initialise variable to hold input */
             string input = "";
 
@@ -43,7 +43,8 @@ namespace LP2P1
             {
                 /* If it's 1 */
                 case "1":
-
+                    render.RenderMainMenuOption1();
+                    AskGameToSearch();
                     break;
                 /* If it's 2 */
                 case "2":
