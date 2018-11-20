@@ -8,6 +8,13 @@ namespace LP2P1
 {
     public class MainMenu
     {
+        IEnumerable<Game> gameList;
+
+        public MainMenu(IEnumerable<Game> gameList)
+        {
+            this.gameList = gameList;
+        }
+
         public void GetMenuOption()
         {
             /* Variable to define and initialise a renderer */
@@ -50,9 +57,28 @@ namespace LP2P1
             }
         }
 
-        public void FindGameInGameList()
+        public void AskGameToSearch()
         {
-            
+            string gameToSearch = "";
+
+            gameToSearch = Console.ReadLine();
+
+            if (Int32.TryParse(gameToSearch, out int id))
+            {
+                FindGameInGameList(id);
+            }
+        }
+
+        public void FindGameInGameList(int gameID)
+        {
+            foreach(Game g in gameList)
+            {
+                if(g.ID == gameID)
+                {
+                    g.ToString();
+                    break;
+                }
+            }
         }
     }
 }
