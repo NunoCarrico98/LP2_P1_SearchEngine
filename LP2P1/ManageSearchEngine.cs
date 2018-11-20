@@ -51,8 +51,14 @@ namespace LP2P1
 
         public void Filter(List<Game> filteredGameList, string[] filters)
         {
-            int input = 0;
-            filteredGameList = gameList.Where(game => game.MetaCritic > input).ToList();
+            filteredGameList = gameList.Where(game => game.Name == filters[0]).ToList();
+            filteredGameList = gameList.Where(game => game.ReleaseDate > filters[1]).ToList();
+            filteredGameList = gameList.Where(game => game.RequiredAge > filters[2]).ToList();
+            filteredGameList = gameList.Where(game => game.MetaCritic > filters[3]).ToList();
+            filteredGameList = gameList.Where(game => game.RecomendationCount > filters[4]).ToList();
+            filteredGameList = gameList.Where(game => game.ControllerSupport == true).ToList();
+            filteredGameList = gameList.Where(game => game.PlatformWindows == true).ToList();
+            filteredGameList = gameList.Where(game => game.ControllerSupport == true).ToList();
         }
     }
 }
