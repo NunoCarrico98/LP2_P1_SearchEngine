@@ -158,7 +158,7 @@ namespace LP2P1
             using (WebClient client = new WebClient())
             {
                 if(HeaderImage != null)
-                    client.DownloadFile(HeaderImage, @"c:\temp\image.jpg");
+                    client.DownloadFile(HeaderImage, "image.jpg");
             }
         }
 
@@ -168,7 +168,10 @@ namespace LP2P1
 
             sb.AppendFormat($"Game ID: {ID}");
             sb.AppendFormat($"Name: {Name}");
-            sb.AppendFormat($"Release Date: {ReleaseDate.Date.ToString("d")}");
+
+            if (ReleaseDate != null)
+                sb.AppendFormat($"Release Date: {ReleaseDate.Date.ToString("d")}");
+
             sb.AppendFormat($"Required Age to play: {RequiredAge}");
             sb.AppendFormat($"Number of DLCs: {DLCCount}");
             sb.AppendFormat($"Number of Recomendations: {RecommendationCount}");
@@ -196,11 +199,20 @@ namespace LP2P1
                 $"{ToYesOrNoString(CategoryIncludeLevelEditor)}");
             sb.AppendFormat($"Does it have VR Support: " +
                 $"{ToYesOrNoString(CategoryVRSupport)}");
-            sb.AppendFormat($"Support URL:  + {SupportURL.AbsolutePath}");
+
+            if(SupportURL != null)
+                sb.AppendFormat($"Support URL:  + {SupportURL.AbsolutePath}");
+
             sb.AppendFormat($"About the Game:  + {AboutText}");
-            sb.AppendFormat($"Header Image:  + " +
-                $"{Path.GetDirectoryName(@"c:\temp\image.jpg")}");
-            sb.AppendFormat($"Support URL:  + {Website.AbsolutePath}");
+
+            if (HeaderImage != null)
+            {
+                sb.AppendFormat($"Header Image: " +
+                    $"{Path.GetDirectoryName("image.jpg")}");
+            }
+
+            if(Website != null)
+                sb.AppendFormat($"Support URL:  + {Website.AbsolutePath}");
 
             return sb.ToString();
         }

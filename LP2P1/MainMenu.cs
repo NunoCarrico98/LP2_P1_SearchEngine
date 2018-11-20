@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace LP2P1
 {
@@ -53,6 +51,7 @@ namespace LP2P1
                 /* If it's 3 */
                 case "3":
                     /* Quit search engine */
+                    File.Delete("image.jpg");
                     Environment.Exit(1);
                     break;
             }
