@@ -21,7 +21,7 @@ namespace LP2P1
         /// <summary>
         /// Property that defines the release date.
         /// </summary>
-        public DateTime ReleseDate { get; }
+        public DateTime ReleaseDate { get; }
         /// <summary>
         /// Property that defines the minimum age to be able to play the game.
         /// </summary>
@@ -57,7 +57,7 @@ namespace LP2P1
         /// <summary>
         /// Property that defines the number of achivements the game has.
         /// </summary>
-        public int AchivementCount { get; }
+        public int AchievementCount { get; }
         /// <summary>
         /// Property that defines if the game has controller support.
         /// </summary>
@@ -118,11 +118,11 @@ namespace LP2P1
             Name = subStrings[1];
             if (DateTime.TryParse(subStrings[2], out DateTime dt))
             {
-                ReleseDate = dt;
+                ReleaseDate = dt;
             }
             else
             {
-                ReleseDate = DateTime.MinValue;
+                ReleaseDate = DateTime.MinValue;
             }
             RequiredAge = Convert.ToInt32(subStrings[3]);
             DLCCount = Convert.ToInt32(subStrings[4]);
@@ -132,7 +132,7 @@ namespace LP2P1
             ScreenshotCount = Convert.ToInt32(subStrings[8]);
             Owners = Convert.ToInt32(subStrings[9]);
             NumberOfPlayers = Convert.ToInt32(subStrings[10]);
-            AchivementCount = Convert.ToInt32(subStrings[11]);
+            AchievementCount = Convert.ToInt32(subStrings[11]);
             ControllerSupport = Convert.ToBoolean(subStrings[12]);
             PlatformWindows = Convert.ToBoolean(subStrings[13]);
             PlatformLinux = Convert.ToBoolean(subStrings[14]);
@@ -163,14 +163,14 @@ namespace LP2P1
 
             sb.AppendFormat($"Game ID: {ID}");
             sb.AppendFormat($"Name: {Name}");
-            sb.AppendFormat($"Release Date: {ReleseDate.Date.ToString("d")}");
+            sb.AppendFormat($"Release Date: {ReleaseDate.Date.ToString("d")}");
             sb.AppendFormat($"Required Age to play: {RequiredAge}");
             sb.AppendFormat($"Number of DLCs: {DLCCount}");
             sb.AppendFormat($"Number of Recomendations: {RecommendationCount}");
             sb.AppendFormat($"Number of Screenshots Taken: {ScreenshotCount}");
             sb.AppendFormat($"Number of People who own the Game: {Owners}");
             sb.AppendFormat($"Number of Concurrent Players: {NumberOfPlayers}");
-            sb.AppendFormat($"Number of Achivements: {AchivementCount}");
+            sb.AppendFormat($"Number of Achivements: {AchievementCount}");
             sb.AppendFormat($"Does it support controller: " +
                 $"{ToYesOrNoString(ControllerSupport)}");
             sb.AppendFormat($"Does it support Windows: " +
