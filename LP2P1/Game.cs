@@ -201,7 +201,7 @@ namespace LP2P1
                 $"{ToYesOrNoString(CategoryVRSupport)}\n");
 
             if(SupportURL != null)
-                sb.AppendFormat($"Support URL: {SupportURL.AbsolutePath}\n");
+                sb.AppendFormat($"Support URL: {SupportURL}\n");
 
             sb.AppendFormat($"About the Game: {AboutText}\n");
 
@@ -212,7 +212,7 @@ namespace LP2P1
             }
 
             if(Website != null)
-                sb.AppendFormat($"Support URL: {Website.AbsolutePath}\n");
+                sb.AppendFormat($"Support URL: {Website}\n");
 
             return sb.ToString();
         }
