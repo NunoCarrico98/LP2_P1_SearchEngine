@@ -25,5 +25,11 @@ namespace LP2P1
             Console.WriteLine("Please input a game ID.");
             Console.Write("> ");
         }
+
+        public void ShowGameInfo(Game game)
+        {
+            Console.Clear();
+            Console.WriteLine(game);
+        }
     }
 }

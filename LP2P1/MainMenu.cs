@@ -76,8 +76,8 @@ namespace LP2P1
             {
                 if(g.ID == gameID)
                 {
-                    g.ToString();
                     g.DownloadImage();
+                    render.ShowGameInfo(g);
                     break;
                 }
             }
