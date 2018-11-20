@@ -4,6 +4,12 @@ namespace LP2P1
 {
     public class Renderer
     {
+        public static Renderer Instance { get; private set; }
+
+        public Renderer()
+        {
+            if (Instance == null) Instance = this;
+        }
         public void MainMenuInterface()
         {
             Console.Clear();

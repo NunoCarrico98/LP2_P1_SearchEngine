@@ -11,10 +11,11 @@ namespace LP2P1
         private readonly IEnumerable<Game> gameList;
 
         /* Variable to define and initialise a renderer */
-        private readonly Renderer render = new Renderer();
+        private readonly Renderer render;
 
         public MainMenu(IEnumerable<Game> gameList)
         {
+            render = Renderer.Instance;
             this.gameList = gameList;
         }
 
