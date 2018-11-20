@@ -8,11 +8,18 @@ namespace LP2P1
 {
     public class ManageSearchEngine
     {
+        private readonly Renderer render;
         private readonly List<Game> gameList;
 
         public ManageSearchEngine(List<Game> gameList)
         {
+            render = Renderer.Instance;
             this.gameList = gameList;
+        }
+
+        public void Search()
+        {
+
         }
 
         public void Sort(string input)
