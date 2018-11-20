@@ -35,7 +35,7 @@ namespace LP2P1
                     gameList.Sort((game1, game2) => game2.MetaCritic.CompareTo(game1.MetaCritic));
                     break;
                 case "6":
-                    gameList.Sort((game1, game2) => game2.RecomendationCount.CompareTo(game1.RecomendationCount));
+                    gameList.Sort((game1, game2) => game2.RecommendationCount.CompareTo(game1.RecommendationCount));
                     break;
                 case "7":
                     gameList.Sort((game1, game2) => game2.Owners.CompareTo(game1.Owners));
@@ -51,14 +51,14 @@ namespace LP2P1
 
         public void Filter(List<Game> filteredGameList, string[] filters)
         {
-            filteredGameList = gameList.Where(game => game.Name == filters[0]).ToList();
+            /*filteredGameList = gameList.Where(game => game.Name == filters[0]).ToList();
             filteredGameList = gameList.Where(game => game.ReleaseDate > filters[1]).ToList();
             filteredGameList = gameList.Where(game => game.RequiredAge > filters[2]).ToList();
             filteredGameList = gameList.Where(game => game.MetaCritic > filters[3]).ToList();
             filteredGameList = gameList.Where(game => game.RecomendationCount > filters[4]).ToList();
             filteredGameList = gameList.Where(game => game.ControllerSupport == true).ToList();
             filteredGameList = gameList.Where(game => game.PlatformWindows == true).ToList();
-            filteredGameList = gameList.Where(game => game.ControllerSupport == true).ToList();
+            filteredGameList = gameList.Where(game => game.ControllerSupport == true).ToList();*/
         }
     }
 }
