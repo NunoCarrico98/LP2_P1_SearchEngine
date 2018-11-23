@@ -21,7 +21,7 @@ namespace LP2P1
 
         public void Search()
         {
-            render.ShowSearchResult(filteredGameList);
+            render.ShowSearchResults(filteredGameList);
             filteredGameList = gameList;
         }
 
