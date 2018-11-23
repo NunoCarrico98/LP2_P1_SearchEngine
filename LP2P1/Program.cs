@@ -3,8 +3,15 @@ using System.Text;
 
 namespace LP2P1
 {
-    class Program
+    /// <summary>
+    /// Class Program.
+    /// </summary>
+    public class Program
     {
+        /// <summary>
+        /// Program's Main Method.
+        /// </summary>
+        /// <param name="args">Command Line Arguments</param>
         static void Main(string[] args)
         {
             /* Create singleton class */
@@ -12,6 +19,12 @@ namespace LP2P1
 
             /* Change Output encoding */
             Console.OutputEncoding = Encoding.UTF8;
+
+            /* DONT 
+             * FORGET TO 
+             * READ FILE 
+             * FROM 
+             * COMMAND LINE */
 
             /* Create and Initialise a ReadFromFile instance */
             ReadFromFile readFile = new ReadFromFile("games.csv");
