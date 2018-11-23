@@ -111,17 +111,17 @@ namespace LP2P1
         /// </summary>
         public Uri Website { get; }
 
+        /// <summary>
+        /// Constructor to Initialise game properties.
+        /// </summary>
+        /// <param name="subStrings">Substrings with all the game information 
+        /// read from the file</param>
         public Game(string[] subStrings)
         {
-            // Save ID from the first subString
+
+            /* Initialise Game Properties */
             ID = Convert.ToInt32(subStrings[0]);
             Name = subStrings[1];
-
-            if (DateTime.TryParse(subStrings[2], out DateTime dt))
-                ReleaseDate = dt;
-            else
-                ReleaseDate = DateTime.MinValue;
-
             RequiredAge = Convert.ToInt32(subStrings[3]);
             DLCCount = Convert.ToInt32(subStrings[4]);
             MetaCritic = Convert.ToInt32(subStrings[5]);
@@ -140,83 +140,114 @@ namespace LP2P1
             CategoryCoop = Convert.ToBoolean(subStrings[18]);
             CategoryIncludeLevelEditor = Convert.ToBoolean(subStrings[19]);
             CategoryVRSupport = Convert.ToBoolean(subStrings[20]);
-
-            if (Uri.TryCreate(subStrings[21], UriKind.Absolute, out Uri supportLink))
-                SupportURL = supportLink;
-
             AboutText = subStrings[22];
 
+            /* If read date in file is in a valid format */
+            if (DateTime.TryParse(subStrings[2], out DateTime dt))
+                /* Initialise game ReleaseDate property */
+                ReleaseDate = dt;
+            /* If date in file is in an invalid format */
+            else
+                /* Initialise game ReleaseDate property as null */
+                ReleaseDate = DateTime.MinValue;
+
+            /* If read link is in valid format */
+            if (Uri.TryCreate(subStrings[21], UriKind.Absolute, out Uri supportLink))
+                /* Initialise game SupportURL property */
+                SupportURL = supportLink;
+
+            /* If read link is in valid format */
             if (Uri.TryCreate(subStrings[23], UriKind.Absolute, out Uri imageLink))
+                /* Initialise game HeaderImage property */
                 HeaderImage = imageLink;
 
+            /* If read link is in valid format */
             if (Uri.TryCreate(subStrings[24], UriKind.Absolute, out Uri websiteLink))
+                /* Initialise game Website property */
                 Website = websiteLink;
         }
 
+        /// <summary>
+        /// Method to download the game image from the web.
+        /// </summary>
         public void DownloadImage()
         {
+            /* Create a WebClient Instance. At the end, close it. */
             using (WebClient client = new WebClient())
             {
+                /* If a link for the image download exists */
                 if(HeaderImage != null)
+                    /* Download image from the web */
                     client.DownloadFile(HeaderImage, "image.jpg");
             }
         }
 
+        /// <summary>
+        /// Method that overrides the game's ToString().
+        /// </summary>
+        /// <returns>Return a string representing a game.</returns>
         public override string ToString()
         {
+            /* Create a StringBuilder Instance */
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendFormat($"Game ID: {ID}\n");
-            sb.AppendFormat($"Name: {Name}\n");
+            /* Add formatted Game information to the StringBuilder to return 
+             * at the end of the method */
+            sb.Append($"Game ID: {ID}\n");
+            sb.Append($"Name: {Name}\n");
 
             if (ReleaseDate != null)
-                sb.AppendFormat($"Release Date: {ReleaseDate.Date.ToString("d")}\n");
+                sb.Append($"Release Date: {ReleaseDate.Date.ToString("d")}\n");
 
-            sb.AppendFormat($"Required Age to play: {RequiredAge}\n");
-            sb.AppendFormat($"Number of DLCs: {DLCCount}\n");
-            sb.AppendFormat($"Number of Recomendations: {RecommendationCount}\n");
-            sb.AppendFormat($"Number of Screenshots Taken: {ScreenshotCount}\n");
-            sb.AppendFormat($"Number of People who own the Game: {Owners}\n");
-            sb.AppendFormat($"Number of Concurrent Players: {NumberOfPlayers}\n");
-            sb.AppendFormat($"Number of Achivements: {AchievementCount}\n");
-            sb.AppendFormat($"Does it support controller: " +
+            sb.Append($"Required Age to play: {RequiredAge}\n");
+            sb.Append($"Number of DLCs: {DLCCount}\n");
+            sb.Append($"Number of Recomendations: {RecommendationCount}\n");
+            sb.Append($"Number of Screenshots Taken: {ScreenshotCount}\n");
+            sb.Append($"Number of People who own the Game: {Owners}\n");
+            sb.Append($"Number of Concurrent Players: {NumberOfPlayers}\n");
+            sb.Append($"Number of Achivements: {AchievementCount}\n");
+            sb.Append($"Does it support controller: " +
                 $"{ToYesOrNoString(ControllerSupport)}\n");
-            sb.AppendFormat($"Does it support Windows: " +
+            sb.Append($"Does it support Windows: " +
                 $"{ToYesOrNoString(PlatformWindows)}\n");
-            sb.AppendFormat($"Does it support Windows: " +
+            sb.Append($"Does it support Windows: " +
                 $"{ToYesOrNoString(PlatformWindows)}\n");
-            sb.AppendFormat($"Does it support Linux: " +
+            sb.Append($"Does it support Linux: " +
                 $"{ToYesOrNoString(PlatformLinux)}\n");
-            sb.AppendFormat($"Does it support Mac: " +
+            sb.Append($"Does it support Mac: " +
                 $"{ToYesOrNoString(PlatformMac)}\n");
-            sb.AppendFormat($"Does it have a Singleplayer mode: " +
+            sb.Append($"Does it have a Singleplayer mode: " +
                 $"{ToYesOrNoString(CategorySingleplayer)}\n");
-            sb.AppendFormat($"Does it have a Multiplayer mode: " +
+            sb.Append($"Does it have a Multiplayer mode: " +
                 $"{ToYesOrNoString(CategoryMultiplayer)}\n");
-            sb.AppendFormat($"Does it have a Cooperation mode: " +
+            sb.Append($"Does it have a Cooperation mode: " +
                 $"{ToYesOrNoString(CategoryCoop)}\n");
-            sb.AppendFormat($"Does it have a level editor: " +
+            sb.Append($"Does it have a level editor: " +
                 $"{ToYesOrNoString(CategoryIncludeLevelEditor)}\n");
-            sb.AppendFormat($"Does it have VR Support: " +
+            sb.Append($"Does it have VR Support: " +
                 $"{ToYesOrNoString(CategoryVRSupport)}\n");
 
             if(SupportURL != null)
-                sb.AppendFormat($"Support URL: {SupportURL}\n");
+                sb.Append($"Support URL: {SupportURL}\n");
 
-            sb.AppendFormat($"About the Game: {AboutText}\n");
+            sb.Append($"About the Game: {AboutText}\n");
 
             if (HeaderImage != null)
-            {
-                sb.AppendFormat($"Header Image: " +
-                    $"{Path.GetDirectoryName("image.jpg")}\n");
-            }
+                sb.Append($"Header Image: " +
+                    $"{Path.GetFullPath("image.jpg")}\n");
 
             if(Website != null)
-                sb.AppendFormat($"Support URL: {Website}\n");
+                sb.Append($"Support URL: {Website}\n");
 
+            /* Return a string representing a game */
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Method that converts bools to "Yes" or "No"
+        /// </summary>
+        /// <param name="value">Bool that defines the string to return.</param>
+        /// <returns>Return a string with "Yes" or "No"</returns>
         public string ToYesOrNoString(bool value)
         {
             return value ? "Yes" : "No";
