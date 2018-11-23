@@ -193,6 +193,7 @@ namespace LP2P1
 
             /* Add formatted Game information to the StringBuilder to return 
              * at the end of the method */
+
             sb.Append($"Game ID: {ID}\n");
             sb.Append($"Name: {Name}\n");
 
