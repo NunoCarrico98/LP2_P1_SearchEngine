@@ -12,11 +12,11 @@ namespace LP2P1
         private List<Game> filteredGameList;
         private readonly List<Game> gameList;
 
-        public ManageSearchEngine(List<Game> gameList)
+        public ManageSearchEngine(IEnumerable<Game> gameList)
         {
             render = Renderer.Instance;
-            this.gameList = gameList;
-            filteredGameList = gameList;
+            this.gameList = gameList as List<Game>;
+            filteredGameList = gameList as List<Game>;
         }
 
         public void Search()

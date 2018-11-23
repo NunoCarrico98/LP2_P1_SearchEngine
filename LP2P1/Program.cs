@@ -13,9 +13,6 @@ namespace LP2P1
             /* Change Output encoding */
             Console.OutputEncoding = Encoding.UTF8;
 
-            /* Create and Initialise singleton instance */
-            Renderer render = new Renderer();
-
             /* Create and Initialise a ReadFromFile instance */
             ReadFromFile readFile = new ReadFromFile("games.csv");
 

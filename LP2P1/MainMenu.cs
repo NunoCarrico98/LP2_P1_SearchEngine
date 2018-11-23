@@ -22,9 +22,8 @@ namespace LP2P1
             /* Create and Initialise variable to hold input */
             string input = "";
 
-            /* Do cycle while input is not correct or 
-               both start and load game are false */
-            while ((input != "1") && (input != "2") && (input != "3"))
+            /* Show main menu options */
+            do
             {
                 /* Render Menu Interface */
                 render.MainMenuInterface();
@@ -32,7 +31,12 @@ namespace LP2P1
                 input = Console.ReadLine();
                 /* Define what program does with input */
                 SetMenuOption(input);
+
+                Console.ReadKey();
+                input = "";
             }
+            /* While input is invalid */
+            while ((input != "1") && (input != "2") && (input != "3"));
         }
 
         public void SetMenuOption(string input)
@@ -47,7 +51,7 @@ namespace LP2P1
                     break;
                 /* If it's 2 */
                 case "2":
-
+                    render.RenderMainMenuOption2();
                     break;
                 /* If it's 3 */
                 case "3":
@@ -66,20 +70,7 @@ namespace LP2P1
 
             if (Int32.TryParse(gameToSearch, out int id))
             {
-                FindGameInGameList(id);
-            }
-        }
-
-        public void FindGameInGameList(int gameID)
-        {
-            foreach(Game g in gameList)
-            {
-                if(g.ID == gameID)
-                {
-                    g.DownloadImage();
-                    render.ShowGameInfo(g);
-                    break;
-                }
+                render.ShowGameInfo(gameList, id);
             }
         }
     }
