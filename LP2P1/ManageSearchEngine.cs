@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -59,56 +59,65 @@ namespace LP2P1
             {
                 /* If it's 1 */
                 case "1":
-                    /* Sort list according to the game's ID */
+                    /* Sort list according to the game's ID
+					 * (ascending order) */
                     filteredGameList.Sort((game1, game2) =>
                     game1.ID.CompareTo(game2.ID));
                     break;
                 /* If it's 2 */
                 case "2":
-                    /* Sort list according to the game's Name */
+                    /* Sort list according to the game's Name
+					 * (ascending order) */
                     filteredGameList.Sort((game1, game2) =>
                     game1.Name.CompareTo(game2.Name));
                     break;
                 /* If it's 3 */
                 case "3":
-                    /* Sort list according to the game's Release Date */
-                    filteredGameList.Sort((game1, game2) =>
+					/* Sort list according to the game's Release Date 
+					 * (descending order) */
+					filteredGameList.Sort((game1, game2) =>
                     game2.ReleaseDate.CompareTo(game1.ReleaseDate));
                     break;
                 /* If it's 4 */
                 case "4":
-                    /* Sort list according to the game's number of DLCs */
-                    filteredGameList.Sort((game1, game2) =>
+					/* Sort list according to the game's number of DLCs
+					 * (descending order) */
+					filteredGameList.Sort((game1, game2) =>
                     game2.DLCCount.CompareTo(game1.DLCCount));
                     break;
                 /* If it's 5 */
                 case "5":
-                    /* Sort list according to the game's Metacritic score */
-                    filteredGameList.Sort((game1, game2) =>
+					/* Sort list according to the game's Metacritic score
+					 * (descending order) */
+					filteredGameList.Sort((game1, game2) =>
                     game2.MetaCritic.CompareTo(game1.MetaCritic));
                     break;
                 /* If it's 6 */
                 case "6":
-                    /* Sort list according to the game's number of recommendations */
-                    filteredGameList.Sort((game1, game2) =>
+					/* Sort list according to the game's number of recommendations
+					 * (descending order) */
+					filteredGameList.Sort((game1, game2) =>
                     game2.RecommendationCount.CompareTo(game1.RecommendationCount));
                     break;
                 /* If it's 7 */
                 case "7":
-                    /* Sort list according to the game's number of owners */
-                    filteredGameList.Sort((game1, game2) =>
+					/* Sort list according to the game's number of owners
+					 * (descending order) */
+					filteredGameList.Sort((game1, game2) =>
                     game2.Owners.CompareTo(game1.Owners));
                     break;
                 /* If it's 8 */
                 case "8":
-                    /* Sort list according to the game's number of players */
-                    filteredGameList.Sort((game1, game2) =>
+					/* Sort list according to the game's number of players
+					 * (descending order) */
+					filteredGameList.Sort((game1, game2) =>
                     game2.NumberOfPlayers.CompareTo(game1.NumberOfPlayers));
                     break;
                 /* If it's 9 */
                 case "9":
-                    /* Sort list according to the game's number of achievements */
-                    filteredGameList.Sort((game1, game2) =>
+					/* Sort list according to the game's number of achievements
+					 * (descending order) */
+					filteredGameList.Sort((game1, game2) =>
                     game2.AchievementCount.CompareTo(game1.AchievementCount));
                     break;
             }
@@ -117,8 +126,8 @@ namespace LP2P1
         /// <summary>
         /// Method that filters the list according to the user inputs.
         /// </summary>
-        /// <param name="filters">Array of strings containing the user inputs 
-        /// that choose the desired filters</param>
+        /// <param name="filters">Array of strings containing the user desired 
+        /// filters</param>
         public void Filter(string[] filters)
         {
             /* Variable to hold bools from filters */
@@ -153,39 +162,48 @@ namespace LP2P1
                 /* Filter list according to the given number of recommendations */
                 filteredGameList = filteredGameList.Where(game => game.RecommendationCount > recCount).ToList();
 
+			/* Convert user input to bool */
             flag = Convert.ToBoolean(filters[5]);
             /* Filter list with games that have controller support */
             filteredGameList = filteredGameList.Where(game => game.ControllerSupport == flag).ToList();
 
-            flag = Convert.ToBoolean(filters[6]);
+			/* Convert user input to bool */
+			flag = Convert.ToBoolean(filters[6]);
             /* Filter list with games that have support for Windows */
             filteredGameList = filteredGameList.Where(game => game.PlatformWindows == flag).ToList();
 
-            flag = Convert.ToBoolean(filters[7]);
+			/* Convert user input to bool */
+			flag = Convert.ToBoolean(filters[7]);
             /* Filter list with games that have support for Linux */
             filteredGameList = filteredGameList.Where(game => game.PlatformLinux == flag).ToList();
 
-            flag = Convert.ToBoolean(filters[8]);
+			/* Convert user input to bool */
+			flag = Convert.ToBoolean(filters[8]);
             /* Filter list with games that have support for Mac */
             filteredGameList = filteredGameList.Where(game => game.PlatformMac == flag).ToList();
 
-            flag = Convert.ToBoolean(filters[9]);
+			/* Convert user input to bool */
+			flag = Convert.ToBoolean(filters[9]);
             /* Filter list with games that have a singleplayer mode */
             filteredGameList = filteredGameList.Where(game => game.CategorySingleplayer == flag).ToList();
 
-            flag = Convert.ToBoolean(filters[10]);
+			/* Convert user input to bool */
+			flag = Convert.ToBoolean(filters[10]);
             /* Filter list with games that have a multiplayer mode */
             filteredGameList = filteredGameList.Where(game => game.CategoryMultiplayer == flag).ToList();
 
-            flag = Convert.ToBoolean(filters[11]);
+			/* Convert user input to bool */
+			flag = Convert.ToBoolean(filters[11]);
             /* Filter list with games that have a cooperation mode */
             filteredGameList = filteredGameList.Where(game => game.CategoryCoop == flag).ToList();
 
-            flag = Convert.ToBoolean(filters[12]);
+			/* Convert user input to bool */
+			flag = Convert.ToBoolean(filters[12]);
             /* Filter list with games that have a Level Editor */
             filteredGameList = filteredGameList.Where(game => game.CategoryIncludeLevelEditor == flag).ToList();
 
-            flag = Convert.ToBoolean(filters[13]);
+			/* Convert user input to bool */
+			flag = Convert.ToBoolean(filters[13]);
             /* Filter list with games that have VR support */
             filteredGameList = filteredGameList.Where(game => game.CategoryVRSupport == flag).ToList();
         }
