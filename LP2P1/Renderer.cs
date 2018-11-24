@@ -86,7 +86,8 @@ namespace LP2P1
             Console.WriteLine("2. Choose filters");
             Console.WriteLine("3. Search");
             Console.WriteLine("4. Go back");
-        }
+			Console.Write("> ");
+		}
 
 		/// <summary>
 		/// Render Sort Option from the Search Engine Menu.
@@ -106,7 +107,9 @@ namespace LP2P1
             Console.WriteLine("8. Number of players (descendant)");
             Console.WriteLine("9. Number of achievements (descendant)");
             Console.WriteLine("10. Go back");
-        }
+			Console.WriteLine();
+			Console.Write("> ");
+		}
 
 		/// <summary>
 		/// Render Filter Option from the Search Engine Menu.
@@ -131,7 +134,9 @@ namespace LP2P1
             Console.WriteLine("13. Level editor included");
             Console.WriteLine("14. VR support");
             Console.WriteLine("15. Go Back");
-        }
+			Console.WriteLine();
+			Console.Write("> ");
+		}
 
 		/// <summary>
 		/// Show game info about all games in the filtered list.
@@ -166,5 +171,137 @@ namespace LP2P1
             }
         }
 
-    }
+		public void ShowInvalidInputMesage()
+		{
+			Console.Clear();
+			Console.WriteLine("That is not a valid input.");
+			Console.ReadKey();
+		}
+
+		public void ShowFilterByName()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by Name (parcial match, case insensitive)");
+			Console.WriteLine();
+			Console.WriteLine("Chosen Name:");
+			Console.Write("> ");
+		}
+
+		public void ShowFilterByDate()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by Release Date (since)");
+			Console.WriteLine();
+			Console.WriteLine("Chosen Date (Day/Month/Year):");
+			Console.Write("> ");
+		}
+
+		public void ShowFilterByAge()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by Age (greater than)");
+			Console.WriteLine();
+			Console.WriteLine("Chosen Age:");
+			Console.Write("> ");
+		}
+
+		public void ShowFilterByMetacriticScore()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by Metacritic (greater than)");
+			Console.WriteLine();
+			Console.WriteLine("Chosen Metacritic Score:");
+			Console.Write("> ");
+		}
+
+		public void ShowFilterByRecommendations()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by Number of recommendations (greater than)");
+			Console.WriteLine();
+			Console.WriteLine("Chosen Number of Recommendations:");
+			Console.Write("> ");
+		}
+
+		public void ShowFilterByControllerSupport()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by Controller support");
+			Console.WriteLine();
+			Console.WriteLine("Does the Game have Controller Support (true or false):");
+			Console.Write("> ");
+		}
+
+		public void ShowFilterByWindowsSupport()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by Windows support");
+			Console.WriteLine();
+			Console.WriteLine("Does the Game have Windows Support (true or false):");
+			Console.Write("> ");
+		}
+
+		public void ShowFilterByLinuxSupport()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by Linux support");
+			Console.WriteLine();
+			Console.WriteLine("Does the Game have Linux Support (true or false):");
+			Console.Write("> ");
+		}
+
+		public void ShowFilterByMacSupport()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by Mac support");
+			Console.WriteLine();
+			Console.WriteLine("Does the Game have Mac Support (true or false):");
+			Console.Write("> ");
+		}
+
+		public void ShowFilterBySingleplayerSupport()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by Singleplayer Support");
+			Console.WriteLine();
+			Console.WriteLine("Does the Game have Singleplayer Support (true or false):");
+			Console.Write("> ");
+		}
+
+		public void ShowFilterByMultiplayerSupport()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by Multiplayer Support");
+			Console.WriteLine();
+			Console.WriteLine("Does the Game have Multiplayer Support (true or false):");
+			Console.Write("> ");
+		}
+
+		public void ShowFilterByCoopSupport()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by Coop Support");
+			Console.WriteLine();
+			Console.WriteLine("Does the Game have Coop Support (true or false):");
+			Console.Write("> ");
+		}
+
+		public void ShowFilterByLevelEditor()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by Level Editor Support");
+			Console.WriteLine();
+			Console.WriteLine("Does the Game have a Level Editor (true or false):");
+			Console.Write("> ");
+		}
+
+		public void ShowFilterByVRSupport()
+		{
+			Console.Clear();
+			Console.WriteLine("Filter by VR Support");
+			Console.WriteLine();
+			Console.WriteLine("Does the Game have VR Support (true or false):");
+			Console.Write("> ");
+		}
+	}
 }
