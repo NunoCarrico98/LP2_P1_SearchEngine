@@ -20,32 +20,29 @@ namespace LP2P1
             /* Change Output encoding */
             Console.OutputEncoding = Encoding.UTF8;
 
-			/* If there are more than 2 arguments in the command line */
-			if(args.Length >= 2)
-			{
-				Console.WriteLine("There are too many arguments.");
-			}
-			/* If there is less 1 arguments in the command line */
-			else if (args.Length < 1)
-			{
-				Console.WriteLine("Please insert a .csv file as an argument.");
-			}
-			/* If there is only 1 argument in the command line.
+            /* If there are more than 2 arguments in the command line */
+            if (args.Length >= 2)
+            {
+                Console.WriteLine("There are too many arguments.");
+            }
+            /* If there is less 1 arguments in the command line */
+            else if (args.Length < 1)
+            {
+                Console.WriteLine("Please insert a .csv file as an argument.");
+            }
+            /* If there is only 1 argument in the command line.
 			 * Begin Program. */
-			else
-			{
-				/* Create and Initialise a ReadFromFile instance */
-				ReadFromFile readFile = new ReadFromFile(args[0]);
+            else
+            {
+                /* Create and Initialise a ReadFromFile instance */
+                ReadFromFile readFile = new ReadFromFile(args[0]);
 
-            /* Create and Initialise a MainMenu instance */
-            UserInputs userInputs = new UserInputs(readFile.Read());
+                /* Create and Initialise a MainMenu instance */
+                UserInputs userInputs = new UserInputs(readFile.Read());
 
-            /* Ask for user input in main menu */
-            userInputs.GetMenuOption();
-
-				/* Ask for user input in main menu */
-				userInputs.GetMenuOption();
-			}
+                /* Ask for user input in main menu */
+                userInputs.GetMenuOption();
+            }
         }
     }
 }

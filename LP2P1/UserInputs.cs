@@ -52,6 +52,7 @@ namespace LP2P1
                     break;
                 /* If it's 2 */
                 case "2":
+                    searchEngine.RefreshFilteredList();
                     RetrieveSearchMenuOption();
                     break;
                 /* If it's 3 */
@@ -69,7 +70,7 @@ namespace LP2P1
 
             gameToSearch = Console.ReadLine();
 
-            if (Int32.TryParse(gameToSearch, out int id))
+            if (int.TryParse(gameToSearch, out int id))
             {
                 render.ShowGameInfo(gameList, id);
             }
@@ -81,7 +82,7 @@ namespace LP2P1
             string input = "";
 
             /* Retrieve input for search menu */
-            do
+            while (true)
             {
                 /* Show Search menu */
                 render.RenderMainMenuOption2();
@@ -90,29 +91,29 @@ namespace LP2P1
                 input = Console.ReadLine();
 
                 /* Depending on user input, do something */
-                /* A switch can't be used because we need to break out 
-                 * of the do-while cycle instead of the switch itself */
-                if (input == "1")
+
+                switch (input)
                 {
-                    RetrieveSortInput();
+                    case "1":
+                        RetrieveSortInput();
+                        break;
+                    case "2":
+                        RetrieveFilterInput();
+                        break;
+                    case "3":
+                        render.ShowSearchResults(gameList);
+                        break;
                 }
-                else if (input == "2")
-                {
-                    RetrieveFilterInput();
-                }
-                else if (input == "3")
-                {
-                    render.ShowSearchResults(gameList);
-                }
-                else if (input == "4")
+
+                /* A switch can't be used herebecause we need to break out of 
+                 * the do-while cycle instead of the switch itself */
+                if (input == "4")
                 {
                     break;
                 }
 
                 input = "";
             }
-            /* While input is invalid */
-            while ((input != "1") && (input != "2") && (input != "3"));
         }
 
         public void RetrieveSortInput()
@@ -133,7 +134,32 @@ namespace LP2P1
 
         public void RetrieveFilterInput()
         {
-            render.RenderFilterOptions();
+            string[] filters = new string[14];
+            string input = "";
+
+            while (true)
+            {
+                render.RenderFilterOptions();
+                input = Console.ReadLine();
+
+                if (input == "15") break;
+
+                switch(input)
+                {
+                    case "1":
+                        /*
+                        render.meteumnome();
+                        filters[0] = getname();
+                        */
+                        break;
+                }
+                input = "";
+            }
+        }
+
+        public void GetFilterValue()
+        {
+
         }
     }
 }
