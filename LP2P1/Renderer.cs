@@ -41,7 +41,12 @@ namespace LP2P1
 		/// <param name="gameID">Game ID the user is searching for.</param>
         public void ShowGameInfo(IEnumerable<Game> gameList, int gameID)
         {
-			/* For each game in the list */
+            /* Bool variable that indicates if a match ID is found */
+            bool flag = false;
+            /* Clear console text*/
+            Console.Clear();
+
+            /* For each game in the list */
             foreach (Game g in gameList)
             {
 				/* If gameID the user is searching exists */
@@ -51,11 +56,14 @@ namespace LP2P1
                     g.DownloadImage();
 
 					/* Write all game info about that game */
-                    Console.Clear();
                     Console.WriteLine(g);
+                    flag = true;
                     break;
                 }
             }
+            if (!flag) Console.WriteLine($"No game with ID {gameID} found.");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
 
 		/// <summary>
@@ -83,7 +91,7 @@ namespace LP2P1
 		/// <summary>
 		/// Render Sort Option from the Search Engine Menu.
 		/// </summary>
-        public void RenderSortOption()
+        public void RenderSortOptions()
         {
             Console.Clear();
             Console.WriteLine("Sort by:");
@@ -103,7 +111,7 @@ namespace LP2P1
 		/// <summary>
 		/// Render Filter Option from the Search Engine Menu.
 		/// </summary>
-		public void RenderFiltersOption()
+		public void RenderFilterOptions()
         {
             Console.Clear();
             Console.WriteLine("Filter by:");

@@ -30,7 +30,7 @@ namespace LP2P1
             ReadFromFile readFile = new ReadFromFile("games.csv");
 
             /* Create and Initialise a MainMenu instance */
-            MainMenu mainMenu = new MainMenu(readFile.Read());
+            UserInputs mainMenu = new UserInputs(readFile.Read());
 
             /* Ask for user input in main menu */
             mainMenu.GetMenuOption();
