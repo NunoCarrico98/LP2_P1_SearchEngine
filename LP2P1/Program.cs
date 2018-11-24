@@ -38,13 +38,13 @@ namespace LP2P1
 				ReadFromFile readFile = new ReadFromFile(args[0]);
 
             /* Create and Initialise a MainMenu instance */
-            UserInputs mainMenu = new UserInputs(readFile.Read());
+            UserInputs userInputs = new UserInputs(readFile.Read());
 
             /* Ask for user input in main menu */
-            mainMenu.GetMenuOption();
+            userInputs.GetMenuOption();
 
 				/* Ask for user input in main menu */
-				mainMenu.GetMenuOption();
+				userInputs.GetMenuOption();
 			}
         }
     }
