@@ -17,6 +17,7 @@ namespace LP2P1
         public UserInputs(IEnumerable<Game> gameList)
         {
             render = Renderer.Instance;
+            searchEngine = new ManageSearchEngine(gameList);
             this.gameList = gameList;
         }
 
@@ -118,14 +119,16 @@ namespace LP2P1
         {
             string input = "";
 
-            do
+            while (true)
             {
                 render.RenderSortOptions();
                 input = Console.ReadLine();
+
+                if (input == "10") break;
+                searchEngine.Sort(input);
+
+                input = "";
             }
-            while (input != "1" && input != "2" && input != "3" && input != "4"
-            && input != "5" && input != "6" && input != "7"
-            && input != "8" && input != "9" && input != "10");
         }
 
         public void RetrieveFilterInput()

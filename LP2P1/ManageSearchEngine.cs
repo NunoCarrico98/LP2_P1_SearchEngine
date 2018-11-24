@@ -33,7 +33,7 @@ namespace LP2P1
 
             /* Initialise both lists as the entire list of games */
             this.gameList = gameList as List<Game>;
-            filteredGameList = gameList as List<Game>;
+            filteredGameList = this.gameList;
         }
 
         /// <summary>
