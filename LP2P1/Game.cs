@@ -169,10 +169,20 @@ namespace LP2P1
 				Website = websiteLink;
 		}
 
-		/// <summary>
-		/// Method to download the game image from the web.
-		/// </summary>
-		public void DownloadImage()
+        public override bool Equals(object obj)
+        {
+            return this.Name.Equals(((Game)obj).Name);
+        }
+
+        public override int GetHashCode()
+        {
+            return this.ID.GetHashCode();
+        }
+
+        /// <summary>
+        /// Method to download the game image from the web.
+        /// </summary>
+        public void DownloadImage()
 		{
 			//ProcessStartInfo myProcess = new ProcessStartInfo("image.jpg");
 

@@ -15,7 +15,8 @@ namespace LP2P1
 
 		public IEnumerable<Game> Read()
 		{
-			HashSet<Game> gameHashset = new HashSet<Game>();
+            // new GameComparer()
+            HashSet<Game> gameHashset = new HashSet<Game>();
 			List<Game> gameList = new List<Game>();
 
 			/* Read all lines from file. */
@@ -27,7 +28,7 @@ namespace LP2P1
 				/* Separate lines according to accepted format */
 				string[] subStrings = text[i].Split(',');
 
-				gameList.Add(new Game(subStrings));
+				gameHashset.Add(new Game(subStrings));
 			}
 
 			foreach (Game game in gameHashset)
