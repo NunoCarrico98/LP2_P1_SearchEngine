@@ -232,6 +232,9 @@ namespace LP2P1
                 Console.WriteLine("Filter Chosen");
             }
 
+
+            Console.WriteLine("15. Go back");
+
             Console.Write("> ");
         }
 
