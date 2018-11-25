@@ -49,7 +49,7 @@ namespace LP2P1
 				case "1":
 					render.RenderMainMenuOption1();
 					RetrieveGameToSearch();
-                    File.Delete("image.jpg");
+					File.Delete("image.jpg");
 					break;
 				/* If it's 2 */
 				case "2":
@@ -175,16 +175,16 @@ namespace LP2P1
 
 		public void RetrieveFilterInput()
 		{
+			string input = "";
 			string filterName = null;
+			string[] filterBools = new string[9];
 			DateTime filterDate = DateTime.MinValue;
 			int[] filterInts = new int[3];
-			string[] filterBools = new string[9];
-			string input = "";
 
 			while (true)
 			{
-				render.RenderFilterOptions(filterName, filterDate, 
-                    filterInts, filterBools);
+				render.RenderFilterOptions(filterName, filterDate,
+					filterInts, filterBools);
 				input = Console.ReadLine();
 
 				if (input == "15") break;
