@@ -270,11 +270,13 @@ namespace LP2P1
                 Console.WriteLine();
 
                 /* If index has reached count or the end of list*/
-                if ((index) - count == 0 || (filteredList as List<Game>).Count - index == 0)
+                if ((index) - count == 0 || 
+					(filteredList as List<Game>).Count - index == 0)
                 {
                     /* If the current count minus the list size is between 1 and 10,
                      * it means we have reached the end */
-                    if (((count - (filteredList as List<Game>).Count) <= 10) && ((count - (filteredList as List<Game>).Count) > 0))
+                    if (((count - (filteredList as List<Game>).Count) <= 10) && 
+						((count - (filteredList as List<Game>).Count) > 0))
                     {
                         /* Show proper message */
                         Console.WriteLine("End of list!");
