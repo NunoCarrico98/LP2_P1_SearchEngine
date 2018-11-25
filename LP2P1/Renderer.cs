@@ -220,7 +220,7 @@ namespace LP2P1
                 Console.WriteLine("13. Lever editor included");
             else
             {
-                Console.WriteLine("13. Level editor included - ");
+                Console.Write("13. Level editor included - ");
                 Console.WriteLine("Filter Chosen");
             }
 
@@ -228,7 +228,7 @@ namespace LP2P1
                 Console.WriteLine("14. VR support");
             else
             {
-                Console.WriteLine("14. VR support - ");
+                Console.Write("14. VR support - ");
                 Console.WriteLine("Filter Chosen");
             }
 
