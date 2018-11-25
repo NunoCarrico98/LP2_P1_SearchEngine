@@ -169,12 +169,21 @@ namespace LP2P1
 				Website = websiteLink;
 		}
 
+		/// <summary>
+		/// Method to override the Object.Equals() method.
+		/// </summary>
+		/// <param name="obj">Object you wish to compare to.</param>
+		/// <returns>Returns a bool according to object equality.</returns>
         public override bool Equals(object obj)
         {
             return this.Name.Equals(((Game)obj).Name);
         }
 
-        public override int GetHashCode()
+		/// <summary>
+		/// Method to override the Object.GetHashCode() method.
+		/// </summary>
+		/// <returns>Returns the ID property HashCode.</returns>
+		public override int GetHashCode()
         {
             return this.ID.GetHashCode();
         }
