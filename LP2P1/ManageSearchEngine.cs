@@ -36,6 +36,9 @@ namespace LP2P1
 			filteredGameList = this.gameList;
 		}
 
+		/// <summary>
+		/// Method to refresh the filtered list of games.
+		/// </summary>
 		public void RefreshFilteredList()
 		{
 			filteredGameList = gameList;

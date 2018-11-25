@@ -195,15 +195,25 @@ namespace LP2P1
 					client.DownloadFile(HeaderImage, "image.jpg");
 			}
 
+			/* Open image */
 			Process.Start("image.jpg");
 		}
 
+		/// <summary>
+		/// Method that opens URLs according to user input.
+		/// </summary>
+		/// <param name="open">Array of bools containing the user decision to 
+		/// open the URLS or not.</param>
 		public void OpenURLs(bool[] open)
 		{
+			/* If user wants to open URL */
 			if (open[0])
+				/* Open Support URL on default browser */
 				Process.Start(SupportURL.AbsoluteUri);
 
+			/* If user wants to open URL */
 			if (open[1])
+				/* Open Game's URL on default browser */
 				Process.Start(Website.AbsoluteUri);
 		}
 
