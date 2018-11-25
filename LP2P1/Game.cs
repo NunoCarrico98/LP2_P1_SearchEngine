@@ -169,12 +169,21 @@ namespace LP2P1
 				Website = websiteLink;
 		}
 
+		/// <summary>
+		/// Method to override the Object.Equals() method.
+		/// </summary>
+		/// <param name="obj">Object you wish to compare to.</param>
+		/// <returns>Returns a bool according to object equality.</returns>
         public override bool Equals(object obj)
         {
             return this.ID.Equals(((Game)obj).ID);
         }
 
-        public override int GetHashCode()
+		/// <summary>
+		/// Method to override the Object.GetHashCode() method.
+		/// </summary>
+		/// <returns>Returns the ID property HashCode.</returns>
+		public override int GetHashCode()
         {
             return this.ID.GetHashCode();
         }
@@ -195,15 +204,25 @@ namespace LP2P1
 					client.DownloadFile(HeaderImage, "image.jpg");
 			}
 
+			/* Open image */
 			Process.Start("image.jpg");
 		}
 
+		/// <summary>
+		/// Method that opens URLs according to user input.
+		/// </summary>
+		/// <param name="open">Array of bools containing the user decision to 
+		/// open the URLS or not.</param>
 		public void OpenURLs(bool[] open)
 		{
+			/* If user wants to open URL */
 			if (open[0])
+				/* Open Support URL on default browser */
 				Process.Start(SupportURL.AbsoluteUri);
 
+			/* If user wants to open URL */
 			if (open[1])
+				/* Open Game's URL on default browser */
 				Process.Start(Website.AbsoluteUri);
 		}
 

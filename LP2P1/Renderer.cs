@@ -27,8 +27,11 @@ namespace LP2P1
         /// </summary>
         public void MainMenuInterface()
         {
-            Console.Clear();
-            Console.WriteLine("1. Show game info");
+			/* Clear console text */
+			Console.Clear();
+
+			/* Show main menu interface */
+			Console.WriteLine("1. Show game info");
             Console.WriteLine("2. Search");
             Console.WriteLine("3. Exit");
             Console.Write("> ");
@@ -41,7 +44,7 @@ namespace LP2P1
         /// <param name="gameID">Game ID the user is searching for.</param>
         public void ShowGameInfo(Game g)
         {
-            /* Clear console text*/
+            /* Clear console text */
             Console.Clear();
 
             /* Write all game info about that game */
@@ -49,20 +52,33 @@ namespace LP2P1
             Console.WriteLine();
         }
 
-        public void ShowWrongIDMessage(int gameID)
+		/// <summary>
+		/// Method to show error message if ID doesn't exist.
+		/// </summary>
+		/// <param name="gameID">Game ID the user is searching.</param>
+		public void ShowWrongIDMessage(int gameID)
         {
-            Console.Clear();
-            Console.WriteLine($"No game with specified ID found.");
+			/* Clear console text */
+			Console.Clear();
+
+			/* Show error message */
+            Console.WriteLine($"No game with ID {gameID} found.");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
 
+		/// <summary>
+		/// Method to ask user if he wants to open the support website.
+		/// </summary>
         public void RenderSupportWebsite()
         {
             Console.WriteLine("Do you Want to Open the Support Website? (Y/N)");
         }
 
-        public void RenderGameWebsite()
+		/// <summary>
+		/// Method to ask user if he wants to open the game's website.
+		/// </summary>
+		public void RenderGameWebsite()
         {
             Console.WriteLine("Do you Want to Open the Game's Website? (Y/N)");
         }
@@ -72,7 +88,10 @@ namespace LP2P1
         /// </summary>
         public void RenderMainMenuOption1()
         {
-            Console.Clear();
+			/* Clear console text */
+			Console.Clear();
+
+			/* Ask for a game ID to search */
             Console.WriteLine("Please input a game ID.");
             Console.Write("> ");
         }
@@ -82,7 +101,10 @@ namespace LP2P1
         /// </summary>
         public void RenderMainMenuOption2()
         {
-            Console.Clear();
+			/* Clear console text */
+			Console.Clear();
+
+			/* Show Search Engine Interface */
             Console.WriteLine("1. Sort");
             Console.WriteLine("2. Choose filters");
             Console.WriteLine("3. Search");
@@ -95,7 +117,10 @@ namespace LP2P1
         /// </summary>
         public void RenderSortOptions()
         {
-            Console.Clear();
+			/* Clear console text */
+			Console.Clear();
+
+			/* Show filter options */
             Console.WriteLine("Sort by:");
             Console.WriteLine();
             Console.WriteLine("1. ID (ascendant)");
@@ -117,8 +142,12 @@ namespace LP2P1
         /// </summary>
         public void RenderFilterOptions(string filterName, DateTime filterDate, int[] filterInts, string[] filterBools)
         {
-            Console.Clear();
-            Console.WriteLine("Filter by:");
+			/* Clear console text */
+			Console.Clear();
+
+			/* Show filter options.
+			 * If a filter is chosen, present that to user with respective value*/
+			Console.WriteLine("Filter by:");
             Console.WriteLine();
             if (filterName == null)
                 Console.WriteLine("1. Name (parcial match, case insensitive)");
@@ -249,7 +278,8 @@ namespace LP2P1
             /* Counter for the number of games shown at once in the console */
             int count = 10;
 
-            Console.Clear();
+			/* Clear console text */
+			Console.Clear();
 
             /* Cycle through the filtered game list */
             foreach (Game game in filteredList)
@@ -295,6 +325,9 @@ namespace LP2P1
             }
         }
 
+		/// <summary>
+		/// Method that shows a error message of an invalid input.
+		/// </summary>
         public void ShowInvalidInputMesage()
         {
             Console.WriteLine("That is not a valid input.");
@@ -303,46 +336,76 @@ namespace LP2P1
             Console.Write("> ");
         }
 
+		/// <summary>
+		/// Method that shows the Name filter option.
+		/// </summary>
         public void ShowFilterByName()
         {
-            Console.Clear();
-            Console.WriteLine("Filter by Name (parcial match, case insensitive)");
+			/* Clear console text */
+			Console.Clear();
+
+			/* Show Interface */
+			Console.WriteLine("Filter by Name (parcial match, case insensitive)");
             Console.WriteLine();
             Console.WriteLine("Chosen Name:");
             Console.Write("> ");
         }
 
-        public void ShowFilterByDate()
+		/// <summary>
+		/// Method that shows the Date filter option.
+		/// </summary>
+		public void ShowFilterByDate()
         {
-            Console.Clear();
-            Console.WriteLine("Filter by Release Date (since)");
+			/* Clear console text */
+			Console.Clear();
+
+			/* Show Interface */
+			Console.WriteLine("Filter by Release Date (since)");
             Console.WriteLine();
             Console.WriteLine("Chosen Date (Day/Month/Year):");
             Console.Write("> ");
         }
 
-        public void ShowFilterByAge()
+		/// <summary>
+		/// Method that shows the Age filter option.
+		/// </summary>
+		public void ShowFilterByAge()
         {
-            Console.Clear();
+			/* Clear console text */
+			Console.Clear();
+
+			/* Show Interface */
             Console.WriteLine("Filter by Age (greater than)");
             Console.WriteLine();
             Console.WriteLine("Chosen Age:");
             Console.Write("> ");
         }
 
-        public void ShowFilterByMetacriticScore()
+		/// <summary>
+		/// Method that shows the Metacritic Score filter option.
+		/// </summary>
+		public void ShowFilterByMetacriticScore()
         {
-            Console.Clear();
-            Console.WriteLine("Filter by Metacritic (greater than)");
+			/* Clear console text */
+			Console.Clear();
+
+			/* Show Interface */
+			Console.WriteLine("Filter by Metacritic (greater than)");
             Console.WriteLine();
             Console.WriteLine("Chosen Metacritic Score:");
             Console.Write("> ");
         }
 
-        public void ShowFilterByRecommendations()
+		/// <summary>
+		/// Method that shows the Number of Recommendations filter option.
+		/// </summary>
+		public void ShowFilterByRecommendations()
         {
-            Console.Clear();
-            Console.WriteLine("Filter by Number of recommendations (greater than)");
+			/* Clear console text */
+			Console.Clear();
+
+			/* Show Interface */
+			Console.WriteLine("Filter by Number of recommendations (greater than)");
             Console.WriteLine();
             Console.WriteLine("Chosen Number of Recommendations:");
             Console.Write("> ");
