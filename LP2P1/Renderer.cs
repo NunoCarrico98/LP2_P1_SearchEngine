@@ -140,7 +140,7 @@ namespace LP2P1
                 Console.WriteLine("3. Age (greater than)");
             else
             {
-                Console.Write("3. Age (greater than) -");
+                Console.Write("3. Age (greater than) - ");
                 Console.WriteLine("Filter Chosen -> Value: " + filterInts[0]);
             }
 
@@ -148,7 +148,7 @@ namespace LP2P1
                 Console.WriteLine("4. Metacritic (greater than)");
             else
             {
-                Console.Write("4. Metacritic (greater than) -");
+                Console.Write("4. Metacritic (greater than) - ");
                 Console.WriteLine("Filter Chosen -> Value: " + filterInts[1]);
             }
 
@@ -156,7 +156,7 @@ namespace LP2P1
                 Console.WriteLine("5. Number of recommendations (greater than)");
             else
             {
-                Console.Write("5. Number of recommendations  (greater than) -");
+                Console.Write("5. Number of recommendations  (greater than) - ");
                 Console.WriteLine("Filter Chosen -> Value: " + filterInts[2]);
             }
 
@@ -164,73 +164,75 @@ namespace LP2P1
                 Console.WriteLine("6. Controller support");
             else
             {
-                Console.WriteLine("6. Controller support -");
-                Console.Write("Filter Chosen");
+                Console.Write("6. Controller support - ");
+                Console.WriteLine("Filter Chosen");
             }
 
             if (filterBools[1] == null)
                 Console.WriteLine("7. Windows support");
             else
             {
-                Console.WriteLine("7. Windows support -");
-                Console.Write("Filter Chosen");
+                Console.Write("7. Windows support - ");
+                Console.WriteLine("Filter Chosen");
             }
 
             if (filterBools[2] == null)
                 Console.WriteLine("8. Linux support");
             else
             {
-                Console.WriteLine("8. Linux support -");
-                Console.Write("Filter Chosen");
+                Console.Write("8. Linux support - ");
+                Console.WriteLine("Filter Chosen");
             }
 
             if (filterBools[3] == null)
                 Console.WriteLine("9. Mac support");
             else
             {
-                Console.WriteLine("9. Mac support -");
-                Console.Write("Filter Chosen");
+                Console.Write("9. Mac support - ");
+                Console.WriteLine("Filter Chosen");
             }
 
             if (filterBools[4] == null)
                 Console.WriteLine("10. Singleplayer support");
             else
             {
-                Console.WriteLine("10. Singleplayer support -");
-                Console.Write("Filter Chosen");
+                Console.Write("10. Singleplayer support - ");
+                Console.WriteLine("Filter Chosen");
             }
 
             if (filterBools[5] == null)
                 Console.WriteLine("11. Multiplayer support");
             else
             {
-                Console.WriteLine("11. Multiplayer support -");
-                Console.Write("Filter Chosen");
+                Console.Write("11. Multiplayer support - ");
+                Console.WriteLine("Filter Chosen");
             }
 
             if (filterBools[6] == null)
                 Console.WriteLine("12. Coop support");
             else
             {
-                Console.WriteLine("12. Coop support -");
-                Console.Write("Filter Chosen");
+                Console.Write("12. Coop support - ");
+                Console.WriteLine("Filter Chosen");
             }
 
             if (filterBools[7] == null)
                 Console.WriteLine("13. Lever editor included");
             else
             {
-                Console.WriteLine("13. Level editor included -");
-                Console.Write("Filter Chosen");
+                Console.Write("13. Level editor included - ");
+                Console.WriteLine("Filter Chosen");
             }
 
             if (filterBools[8] == null)
                 Console.WriteLine("14. VR support");
             else
             {
-                Console.WriteLine("14. VR support -");
-                Console.Write("Filter Chosen");
+                Console.Write("14. VR support - ");
+                Console.WriteLine("Filter Chosen");
             }
+
+            Console.WriteLine("15. Go back");
 
             Console.Write("> ");
         }
