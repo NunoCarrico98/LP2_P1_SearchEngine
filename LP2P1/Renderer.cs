@@ -243,12 +243,20 @@ namespace LP2P1
         /// <param name="filteredList"></param>
         public void ShowSearchResults(IEnumerable<Game> filteredList)
         {
-            int index = 1;
+            /* Variable used to keep track of current game index */
+            int index = 0;
+            /* Counter for the number of games shown at once in the console */
             int count = 10;
+
             Console.Clear();
 
+            /* Cycle through the filtered game list */
             foreach (Game game in filteredList)
             {
+                /* Index increments */
+                index++;
+
+                /* Print current game properties */
                 Console.WriteLine($"ID: {game.ID}");
                 Console.WriteLine($"Name: {game.Name}");
                 Console.WriteLine($"Release Date: {game.ReleaseDate}");
@@ -260,9 +268,23 @@ namespace LP2P1
                 Console.WriteLine($"Achievement Count: {game.AchievementCount}");
                 Console.WriteLine();
 
-                index++;
-                if ((index - count) == 0)
+                /* If index has reached count or the end of list*/
+                if ((index) - count == 0 || (filteredList as List<Game>).Count - index == 0)
                 {
+                    /* If the current count minus the list size is between 1 and 10,
+                     * it means we have reached the end */
+                    if (((count - (filteredList as List<Game>).Count) <= 10) && ((count - (filteredList as List<Game>).Count) > 0))
+                    {
+                        /* Show proper message */
+                        Console.WriteLine("End of list!");
+                    }
+                    /* If we haven't reached the end of the list */
+                    else
+                    {
+                        /* Show proper message */
+                        Console.WriteLine("Press any key to show the next results");
+                    }
+                    /* Count increments for the next 10 values */
                     count += 10;
                     Console.ReadKey();
                     Console.Clear();

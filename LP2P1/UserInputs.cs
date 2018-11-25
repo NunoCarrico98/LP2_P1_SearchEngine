@@ -102,7 +102,7 @@ namespace LP2P1
 						break;
 					case "3":
 						searchEngine.Search();
-						break;
+                        break;
 				}
 
 				/* A switch can't be used herebecause we need to break out of 
