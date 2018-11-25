@@ -270,8 +270,10 @@ namespace LP2P1
 
 		public void ShowInvalidInputMesage()
 		{
-			Console.Clear();
 			Console.WriteLine("That is not a valid input.");
+			Console.WriteLine();
+			Console.WriteLine("Please insert a valid input.");
+			Console.Write("> ");
 		}
 
 		public void ShowFilterByName()
