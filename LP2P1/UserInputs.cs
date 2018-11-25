@@ -49,6 +49,7 @@ namespace LP2P1
 				case "1":
 					render.RenderMainMenuOption1();
 					RetrieveGameToSearch();
+                    File.Delete("image.jpg");
 					break;
 				/* If it's 2 */
 				case "2":
@@ -58,7 +59,6 @@ namespace LP2P1
 				/* If it's 3 */
 				case "3":
 					/* Quit search engine */
-					File.Delete("image.jpg");
 					Environment.Exit(1);
 					break;
 			}

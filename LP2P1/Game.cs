@@ -2,6 +2,8 @@
 using System.Text;
 using System.Net;
 using System.IO;
+using System.Diagnostics;
+using System.ComponentModel;
 
 namespace LP2P1
 {
@@ -172,6 +174,8 @@ namespace LP2P1
         /// </summary>
         public void DownloadImage()
         {
+            //ProcessStartInfo myProcess = new ProcessStartInfo("image.jpg");
+
             /* Create a WebClient Instance. At the end, close it. */
             using (WebClient client = new WebClient())
             {
@@ -180,6 +184,8 @@ namespace LP2P1
                     /* Download image from the web */
                     client.DownloadFile(HeaderImage, "image.jpg");
             }
+
+            Process.Start("image.jpg");
         }
 
         /// <summary>

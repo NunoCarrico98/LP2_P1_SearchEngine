@@ -52,12 +52,13 @@ namespace LP2P1
                 /* If gameID the user is searching exists */
                 if (g.ID == gameID)
                 {
-                    /* Downoad the respective image */
-                    g.DownloadImage();
-
                     /* Write all game info about that game */
                     Console.WriteLine(g);
                     flag = true;
+
+                    Console.WriteLine();
+                    /* Downoad the respective image */
+                    g.DownloadImage();
                     break;
                 }
             }
