@@ -171,7 +171,7 @@ namespace LP2P1
 
         public override bool Equals(object obj)
         {
-            return this.Name.Equals(((Game)obj).Name);
+            return this.ID.Equals(((Game)obj).ID);
         }
 
         public override int GetHashCode()
