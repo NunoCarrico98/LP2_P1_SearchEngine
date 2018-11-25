@@ -67,7 +67,6 @@ namespace LP2P1
 		public void RetrieveGameToSearch()
 		{
 			string gameToSearch = "";
-			bool[] openURLs = new bool[2];
 
 			/* Bool variable that indicates if a match ID is found */
 			bool flag = false;
@@ -88,26 +87,34 @@ namespace LP2P1
 						/* Downoad the respective image */
 						g.DownloadImage();
 
-						if (g.SupportURL != null)
-						{
-							render.RenderSupportWebsite();
-							openURLs[0] = GetOpenURL();
-						}
+						OpenURLs(g);
 
-						if (g.Website != null)
-						{
-							render.RenderGameWebsite();
-							openURLs[1] = GetOpenURL();
-						}
-
-						g.OpenURLs(openURLs);
-						Console.ReadKey();
 						break;
 					}
 				}
 
 				if (!flag) render.ShowWrongIDMessage(id);
 			}
+		}
+
+		private void OpenURLs(Game g)
+		{
+			bool[] openURLs = new bool[2];
+
+			if (g.SupportURL != null)
+			{
+				render.RenderSupportWebsite();
+				openURLs[0] = GetOpenURL();
+			}
+
+			if (g.Website != null)
+			{
+				render.RenderGameWebsite();
+				openURLs[1] = GetOpenURL();
+			}
+
+			g.OpenURLs(openURLs);
+			Console.ReadKey();
 		}
 
 		public void RetrieveSearchMenuOption()

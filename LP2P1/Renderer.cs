@@ -59,12 +59,12 @@ namespace LP2P1
 
 		public void RenderSupportWebsite()
 		{
-			Console.WriteLine("Do you want to open the support website? (Y/N)");
+			Console.WriteLine("Do you Want to Open the Support Website? (Y/N)");
 		}
 
 		public void RenderGameWebsite()
 		{
-			Console.WriteLine("Do you want to open the game's website? (Y/N)");
+			Console.WriteLine("Do you Want to Open the Game's Website? (Y/N)");
 		}
 
 		/// <summary>
