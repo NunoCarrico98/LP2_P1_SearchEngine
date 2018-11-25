@@ -75,27 +75,26 @@ namespace LP2P1
 
 			if (int.TryParse(gameToSearch, out int id))
 			{
-				/* For each game in the list */
-				foreach (Game g in gameList)
-				{
-					/* If gameID the user is searching exists */
-					if (g.ID == id)
-					{
-						flag = true;
-						render.ShowGameInfo(g);
+                /* For each game in the list */
+                foreach (Game g in gameList)
+                {
+                    /* If gameID the user is searching exists */
+                    if (g.ID == id)
+                    {
+                        flag = true;
+                        render.ShowGameInfo(g);
 
-						/* Downoad the respective image */
-						g.DownloadImage();
+                        /* Downoad the respective image */
+                        g.DownloadImage();
 
-						OpenURLs(g);
+                        OpenURLs(g);
 
-						break;
-					}
-				}
-
-				if (!flag) render.ShowWrongIDMessage(id);
+                        break;
+                    }
+                }
 			}
-		}
+            if (!flag) render.ShowWrongIDMessage(id);
+        }
 
 		private void OpenURLs(Game g)
 		{

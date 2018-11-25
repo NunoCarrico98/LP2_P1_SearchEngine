@@ -52,7 +52,7 @@ namespace LP2P1
         public void ShowWrongIDMessage(int gameID)
         {
             Console.Clear();
-            Console.WriteLine($"No game with ID {gameID} found.");
+            Console.WriteLine($"No game with specified ID found.");
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
