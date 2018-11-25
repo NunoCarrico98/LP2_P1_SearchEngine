@@ -49,7 +49,7 @@ namespace LP2P1
 				case "1":
 					render.RenderMainMenuOption1();
 					RetrieveGameToSearch();
-                    File.Delete("image.jpg");
+					File.Delete("image.jpg");
 					break;
 				/* If it's 2 */
 				case "2":
@@ -68,12 +68,53 @@ namespace LP2P1
 		{
 			string gameToSearch = "";
 
+			/* Bool variable that indicates if a match ID is found */
+			bool flag = false;
+
 			gameToSearch = Console.ReadLine();
 
 			if (int.TryParse(gameToSearch, out int id))
 			{
-				render.ShowGameInfo(gameList, id);
+				/* For each game in the list */
+				foreach (Game g in gameList)
+				{
+					/* If gameID the user is searching exists */
+					if (g.ID == id)
+					{
+						flag = true;
+						render.ShowGameInfo(g);
+
+						/* Downoad the respective image */
+						g.DownloadImage();
+
+						OpenURLs(g);
+
+						break;
+					}
+				}
+
+				if (!flag) render.ShowWrongIDMessage(id);
 			}
+		}
+
+		private void OpenURLs(Game g)
+		{
+			bool[] openURLs = new bool[2];
+
+			if (g.SupportURL != null)
+			{
+				render.RenderSupportWebsite();
+				openURLs[0] = GetOpenURL();
+			}
+
+			if (g.Website != null)
+			{
+				render.RenderGameWebsite();
+				openURLs[1] = GetOpenURL();
+			}
+
+			g.OpenURLs(openURLs);
+			Console.ReadKey();
 		}
 
 		public void RetrieveSearchMenuOption()
@@ -134,16 +175,16 @@ namespace LP2P1
 
 		public void RetrieveFilterInput()
 		{
+			string input = "";
 			string filterName = null;
+			string[] filterBools = new string[9];
 			DateTime filterDate = DateTime.MinValue;
 			int[] filterInts = new int[3];
-			string[] filterBools = new string[9];
-			string input = "";
 
 			while (true)
 			{
-				render.RenderFilterOptions(filterName, filterDate, 
-                    filterInts, filterBools);
+				render.RenderFilterOptions(filterName, filterDate,
+					filterInts, filterBools);
 				input = Console.ReadLine();
 
 				if (input == "15") break;
@@ -171,39 +212,30 @@ namespace LP2P1
 						filterInts[2] = GetIntFilterValue();
 						break;
 					case "6":
-						render.ShowFilterByControllerSupport();
 						filterBools[0] = "true";
 						break;
 					case "7":
-						render.ShowFilterByWindowsSupport();
 						filterBools[1] = "true";
 						break;
 					case "8":
-						render.ShowFilterByLinuxSupport();
 						filterBools[2] = "true";
 						break;
 					case "9":
-						render.ShowFilterByMacSupport();
 						filterBools[3] = "true";
 						break;
 					case "10":
-						render.ShowFilterBySingleplayerSupport();
 						filterBools[4] = "true";
 						break;
 					case "11":
-						render.ShowFilterByMultiplayerSupport();
 						filterBools[5] = "true";
 						break;
 					case "12":
-						render.ShowFilterByCoopSupport();
 						filterBools[6] = "true";
 						break;
 					case "13":
-						render.ShowFilterByLevelEditor();
 						filterBools[7] = "true";
 						break;
 					case "14":
-						render.ShowFilterByVRSupport();
 						filterBools[8] = "true";
 						break;
 				}
@@ -255,6 +287,32 @@ namespace LP2P1
 			}
 
 			return n;
+		}
+
+		private bool GetOpenURL()
+		{
+			bool b = false;
+			string openURL = "";
+
+			while (true)
+			{
+				openURL = Console.ReadLine();
+
+				if (openURL.ToUpper() == "N")
+				{
+					b = false;
+					break;
+				}
+				else if (openURL.ToUpper() == "Y")
+				{
+					b = true;
+					break;
+				}
+
+				openURL = "";
+			}
+
+			return b;
 		}
 	}
 }
