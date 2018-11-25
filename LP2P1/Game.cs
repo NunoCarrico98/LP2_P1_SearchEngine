@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 using System.Net;
 using System.IO;
@@ -187,6 +187,15 @@ namespace LP2P1
 
             Process.Start("image.jpg");
         }
+
+		public void OpenURLs(bool[] open)
+		{
+			if (open[0]) 
+					Process.Start(SupportURL.AbsoluteUri);
+
+			if(open[1])
+					Process.Start(Website.AbsoluteUri);
+		}
 
         /// <summary>
         /// Method that overrides the game's ToString().
