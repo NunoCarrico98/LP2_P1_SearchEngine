@@ -3,28 +3,28 @@ using System.Collections.Generic;
 
 namespace LP2P1
 {
-	/// <summary>
-	/// Class that renders all the information to the console.
-	/// </summary>
+    /// <summary>
+    /// Class that renders all the information to the console.
+    /// </summary>
     public class Renderer
     {
-		/// <summary>
-		/// Singleton Instance of the Renderer.
-		/// </summary>
+        /// <summary>
+        /// Singleton Instance of the Renderer.
+        /// </summary>
         public static Renderer Instance { get; private set; }
 
-		/// <summary>
-		/// Constructor to Initalise singleton instance.
-		/// </summary>
+        /// <summary>
+        /// Constructor to Initalise singleton instance.
+        /// </summary>
         public Renderer()
         {
-			/* Initialise singleton if a renderer does not exist */
+            /* Initialise singleton if a renderer does not exist */
             if (Instance == null) Instance = this;
         }
 
-		/// <summary>
-		/// Method to render the Main Menu Interface.
-		/// </summary>
+        /// <summary>
+        /// Method to render the Main Menu Interface.
+        /// </summary>
         public void MainMenuInterface()
         {
             Console.Clear();
@@ -34,11 +34,11 @@ namespace LP2P1
             Console.Write("> ");
         }
 
-		/// <summary>
-		/// Method to render all the information about a game.
-		/// </summary>
-		/// <param name="gameList">List of Games.</param>
-		/// <param name="gameID">Game ID the user is searching for.</param>
+        /// <summary>
+        /// Method to render all the information about a game.
+        /// </summary>
+        /// <param name="gameList">List of Games.</param>
+        /// <param name="gameID">Game ID the user is searching for.</param>
         public void ShowGameInfo(IEnumerable<Game> gameList, int gameID)
         {
             /* Bool variable that indicates if a match ID is found */
@@ -49,13 +49,13 @@ namespace LP2P1
             /* For each game in the list */
             foreach (Game g in gameList)
             {
-				/* If gameID the user is searching exists */
+                /* If gameID the user is searching exists */
                 if (g.ID == gameID)
                 {
-					/* Downoad the respective image */
+                    /* Downoad the respective image */
                     g.DownloadImage();
 
-					/* Write all game info about that game */
+                    /* Write all game info about that game */
                     Console.WriteLine(g);
                     flag = true;
                     break;
@@ -66,9 +66,9 @@ namespace LP2P1
             Console.ReadKey();
         }
 
-		/// <summary>
-		/// Render the first option from the Main Menu.
-		/// </summary>
+        /// <summary>
+        /// Render the first option from the Main Menu.
+        /// </summary>
         public void RenderMainMenuOption1()
         {
             Console.Clear();
@@ -76,22 +76,22 @@ namespace LP2P1
             Console.Write("> ");
         }
 
-		/// <summary>
-		/// Render the second option from the Main Menu.
-		/// </summary>
-		public void RenderMainMenuOption2()
+        /// <summary>
+        /// Render the second option from the Main Menu.
+        /// </summary>
+        public void RenderMainMenuOption2()
         {
             Console.Clear();
             Console.WriteLine("1. Sort");
             Console.WriteLine("2. Choose filters");
             Console.WriteLine("3. Search");
             Console.WriteLine("4. Go back");
-			Console.Write("> ");
-		}
+            Console.Write("> ");
+        }
 
-		/// <summary>
-		/// Render Sort Option from the Search Engine Menu.
-		/// </summary>
+        /// <summary>
+        /// Render Sort Option from the Search Engine Menu.
+        /// </summary>
         public void RenderSortOptions()
         {
             Console.Clear();
@@ -107,47 +107,137 @@ namespace LP2P1
             Console.WriteLine("8. Number of players (descendant)");
             Console.WriteLine("9. Number of achievements (descendant)");
             Console.WriteLine("10. Go back");
-			Console.WriteLine();
-			Console.Write("> ");
-		}
+            Console.WriteLine();
+            Console.Write("> ");
+        }
 
-		/// <summary>
-		/// Render Filter Option from the Search Engine Menu.
-		/// </summary>
-		public void RenderFilterOptions(string filterName)
+        /// <summary>
+        /// Render Filter Option from the Search Engine Menu.
+        /// </summary>
+        public void RenderFilterOptions(string filterName, DateTime filterDate, int[] filterInts, string[] filterBools)
         {
             Console.Clear();
             Console.WriteLine("Filter by:");
             Console.WriteLine();
-			if (filterName == null)
-				Console.WriteLine("1. Name (parcial match, case insensitive)");
-			else
-			{
-				Console.Write("1. Name (parcial match, case insensitive) - ");
-				Console.WriteLine("Filter Chosen -> Value: " + filterName );
-			}
-			Console.WriteLine("2. Release Date (since)");
-            Console.WriteLine("3. Age (greater than)");
-            Console.WriteLine("4. Metacritic (greater than)");
-            Console.WriteLine("5. Number of recommendations (greater than)");
-            Console.WriteLine("6. Controller support");
-            Console.WriteLine("7. Windows support");
-            Console.WriteLine("8. Linux support");
-            Console.WriteLine("9. Mac support");
-            Console.WriteLine("10. Singleplayer support");
-            Console.WriteLine("11. Multiplayer support");
-            Console.WriteLine("12. Coop support");
-            Console.WriteLine("13. Level editor included");
-            Console.WriteLine("14. VR support");
-            Console.WriteLine("15. Go Back");
-			Console.WriteLine();
-			Console.Write("> ");
-		}
+            if (filterName == null)
+                Console.WriteLine("1. Name (parcial match, case insensitive)");
+            else
+            {
+                Console.Write("1. Name (parcial match, case insensitive) - ");
+                Console.WriteLine("Filter Chosen -> Value: " + filterName);
+            }
 
-		/// <summary>
-		/// Show game info about all games in the filtered list.
-		/// </summary>
-		/// <param name="filteredList"></param>
+            if (filterDate == DateTime.MinValue)
+                Console.WriteLine("2. Release Date (since)");
+            else
+            {
+                Console.Write("2. Release Date (since) - ");
+                Console.WriteLine("Filter Chosen -> Value: " + filterDate);
+            }
+
+            if (filterInts[0] == 0)
+                Console.WriteLine("3. Age (greater than)");
+            else
+            {
+                Console.Write("3. Age (greater than) -");
+                Console.WriteLine("Filter Chosen -> Value: " + filterInts[0]);
+            }
+
+            if (filterInts[1] == 0)
+                Console.WriteLine("4. Metacritic (greater than)");
+            else
+            {
+                Console.Write("4. Metacritic (greater than) -");
+                Console.WriteLine("Filter Chosen -> Value: " + filterInts[1]);
+            }
+
+            if (filterInts[2] == 0)
+                Console.WriteLine("5. Number of recommendations (greater than)");
+            else
+            {
+                Console.Write("5. Number of recommendations  (greater than) -");
+                Console.WriteLine("Filter Chosen -> Value: " + filterInts[2]);
+            }
+
+            if (filterBools[0] == null)
+                Console.WriteLine("6. Controller support");
+            else
+            {
+                Console.WriteLine("6. Controller support -");
+                Console.Write("Filter Chosen");
+            }
+
+            if (filterBools[1] == null)
+                Console.WriteLine("7. Windows support");
+            else
+            {
+                Console.WriteLine("7. Windows support -");
+                Console.Write("Filter Chosen");
+            }
+
+            if (filterBools[2] == null)
+                Console.WriteLine("8. Linux support");
+            else
+            {
+                Console.WriteLine("8. Linux support -");
+                Console.Write("Filter Chosen");
+            }
+
+            if (filterBools[3] == null)
+                Console.WriteLine("9. Mac support");
+            else
+            {
+                Console.WriteLine("9. Mac support -");
+                Console.Write("Filter Chosen");
+            }
+
+            if (filterBools[4] == null)
+                Console.WriteLine("10. Singleplayer support");
+            else
+            {
+                Console.WriteLine("10. Singleplayer support -");
+                Console.Write("Filter Chosen");
+            }
+
+            if (filterBools[5] == null)
+                Console.WriteLine("11. Multiplayer support");
+            else
+            {
+                Console.WriteLine("11. Multiplayer support -");
+                Console.Write("Filter Chosen");
+            }
+
+            if (filterBools[6] == null)
+                Console.WriteLine("12. Coop support");
+            else
+            {
+                Console.WriteLine("12. Coop support -");
+                Console.Write("Filter Chosen");
+            }
+
+            if (filterBools[7] == null)
+                Console.WriteLine("13. Lever editor included");
+            else
+            {
+                Console.WriteLine("13. Level editor included -");
+                Console.Write("Filter Chosen");
+            }
+
+            if (filterBools[8] == null)
+                Console.WriteLine("14. VR support");
+            else
+            {
+                Console.WriteLine("14. VR support -");
+                Console.Write("Filter Chosen");
+            }
+
+            Console.Write("> ");
+        }
+
+        /// <summary>
+        /// Show game info about all games in the filtered list.
+        /// </summary>
+        /// <param name="filteredList"></param>
         public void ShowSearchResults(IEnumerable<Game> filteredList)
         {
             int index = 1;
@@ -177,137 +267,137 @@ namespace LP2P1
             }
         }
 
-		public void ShowInvalidInputMesage()
-		{
-			Console.Clear();
-			Console.WriteLine("That is not a valid input.");
-			Console.ReadKey();
-		}
+        public void ShowInvalidInputMesage()
+        {
+            Console.Clear();
+            Console.WriteLine("That is not a valid input.");
+            Console.ReadKey();
+        }
 
-		public void ShowFilterByName()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by Name (parcial match, case insensitive)");
-			Console.WriteLine();
-			Console.WriteLine("Chosen Name:");
-			Console.Write("> ");
-		}
+        public void ShowFilterByName()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by Name (parcial match, case insensitive)");
+            Console.WriteLine();
+            Console.WriteLine("Chosen Name:");
+            Console.Write("> ");
+        }
 
-		public void ShowFilterByDate()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by Release Date (since)");
-			Console.WriteLine();
-			Console.WriteLine("Chosen Date (Day/Month/Year):");
-			Console.Write("> ");
-		}
+        public void ShowFilterByDate()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by Release Date (since)");
+            Console.WriteLine();
+            Console.WriteLine("Chosen Date (Day/Month/Year):");
+            Console.Write("> ");
+        }
 
-		public void ShowFilterByAge()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by Age (greater than)");
-			Console.WriteLine();
-			Console.WriteLine("Chosen Age:");
-			Console.Write("> ");
-		}
+        public void ShowFilterByAge()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by Age (greater than)");
+            Console.WriteLine();
+            Console.WriteLine("Chosen Age:");
+            Console.Write("> ");
+        }
 
-		public void ShowFilterByMetacriticScore()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by Metacritic (greater than)");
-			Console.WriteLine();
-			Console.WriteLine("Chosen Metacritic Score:");
-			Console.Write("> ");
-		}
+        public void ShowFilterByMetacriticScore()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by Metacritic (greater than)");
+            Console.WriteLine();
+            Console.WriteLine("Chosen Metacritic Score:");
+            Console.Write("> ");
+        }
 
-		public void ShowFilterByRecommendations()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by Number of recommendations (greater than)");
-			Console.WriteLine();
-			Console.WriteLine("Chosen Number of Recommendations:");
-			Console.Write("> ");
-		}
+        public void ShowFilterByRecommendations()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by Number of recommendations (greater than)");
+            Console.WriteLine();
+            Console.WriteLine("Chosen Number of Recommendations:");
+            Console.Write("> ");
+        }
 
-		public void ShowFilterByControllerSupport()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by Controller support");
-			Console.WriteLine();
-			Console.WriteLine("Does the Game have Controller Support (true or false):");
-			Console.Write("> ");
-		}
+        public void ShowFilterByControllerSupport()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by Controller support");
+            Console.WriteLine();
+            Console.WriteLine("Does the Game have Controller Support (true or false):");
+            Console.Write("> ");
+        }
 
-		public void ShowFilterByWindowsSupport()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by Windows support");
-			Console.WriteLine();
-			Console.WriteLine("Does the Game have Windows Support (true or false):");
-			Console.Write("> ");
-		}
+        public void ShowFilterByWindowsSupport()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by Windows support");
+            Console.WriteLine();
+            Console.WriteLine("Does the Game have Windows Support (true or false):");
+            Console.Write("> ");
+        }
 
-		public void ShowFilterByLinuxSupport()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by Linux support");
-			Console.WriteLine();
-			Console.WriteLine("Does the Game have Linux Support (true or false):");
-			Console.Write("> ");
-		}
+        public void ShowFilterByLinuxSupport()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by Linux support");
+            Console.WriteLine();
+            Console.WriteLine("Does the Game have Linux Support (true or false):");
+            Console.Write("> ");
+        }
 
-		public void ShowFilterByMacSupport()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by Mac support");
-			Console.WriteLine();
-			Console.WriteLine("Does the Game have Mac Support (true or false):");
-			Console.Write("> ");
-		}
+        public void ShowFilterByMacSupport()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by Mac support");
+            Console.WriteLine();
+            Console.WriteLine("Does the Game have Mac Support (true or false):");
+            Console.Write("> ");
+        }
 
-		public void ShowFilterBySingleplayerSupport()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by Singleplayer Support");
-			Console.WriteLine();
-			Console.WriteLine("Does the Game have Singleplayer Support (true or false):");
-			Console.Write("> ");
-		}
+        public void ShowFilterBySingleplayerSupport()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by Singleplayer Support");
+            Console.WriteLine();
+            Console.WriteLine("Does the Game have Singleplayer Support (true or false):");
+            Console.Write("> ");
+        }
 
-		public void ShowFilterByMultiplayerSupport()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by Multiplayer Support");
-			Console.WriteLine();
-			Console.WriteLine("Does the Game have Multiplayer Support (true or false):");
-			Console.Write("> ");
-		}
+        public void ShowFilterByMultiplayerSupport()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by Multiplayer Support");
+            Console.WriteLine();
+            Console.WriteLine("Does the Game have Multiplayer Support (true or false):");
+            Console.Write("> ");
+        }
 
-		public void ShowFilterByCoopSupport()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by Coop Support");
-			Console.WriteLine();
-			Console.WriteLine("Does the Game have Coop Support (true or false):");
-			Console.Write("> ");
-		}
+        public void ShowFilterByCoopSupport()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by Coop Support");
+            Console.WriteLine();
+            Console.WriteLine("Does the Game have Coop Support (true or false):");
+            Console.Write("> ");
+        }
 
-		public void ShowFilterByLevelEditor()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by Level Editor Support");
-			Console.WriteLine();
-			Console.WriteLine("Does the Game have a Level Editor (true or false):");
-			Console.Write("> ");
-		}
+        public void ShowFilterByLevelEditor()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by Level Editor Support");
+            Console.WriteLine();
+            Console.WriteLine("Does the Game have a Level Editor (true or false):");
+            Console.Write("> ");
+        }
 
-		public void ShowFilterByVRSupport()
-		{
-			Console.Clear();
-			Console.WriteLine("Filter by VR Support");
-			Console.WriteLine();
-			Console.WriteLine("Does the Game have VR Support (true or false):");
-			Console.Write("> ");
-		}
-	}
+        public void ShowFilterByVRSupport()
+        {
+            Console.Clear();
+            Console.WriteLine("Filter by VR Support");
+            Console.WriteLine();
+            Console.WriteLine("Does the Game have VR Support (true or false):");
+            Console.Write("> ");
+        }
+    }
 }

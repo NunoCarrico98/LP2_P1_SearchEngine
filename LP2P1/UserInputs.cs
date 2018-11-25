@@ -142,7 +142,8 @@ namespace LP2P1
 
 			while (true)
 			{
-				render.RenderFilterOptions(filterName);
+				render.RenderFilterOptions(filterName, filterDate, 
+                    filterInts, filterBools);
 				input = Console.ReadLine();
 
 				if (input == "15") break;
