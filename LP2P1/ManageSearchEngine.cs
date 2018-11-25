@@ -136,7 +136,7 @@ namespace LP2P1
 		/// </summary>
 		/// <param name="filters">Array of strings containing the user desired 
 		/// filters</param>
-		public void Filter(string name, DateTime date, int[] ints, string[] bools)
+		public void Filter(string name, DateTime date, int[] ints, bool[] bools)
 		{
 			if(name != null)
 				/* Filter list according to the given name (partial or full name) */
@@ -159,39 +159,39 @@ namespace LP2P1
 				/* Filter list according to the given number of recommendations */
 				filteredGameList = filteredGameList.Where(game => game.RecommendationCount > ints[2]).ToList();
 
-			if(bools[0] != null)
+			if(bools[0])
 				/* Filter list with games that have controller support */
 				filteredGameList = filteredGameList.Where(game => game.ControllerSupport == true).ToList();
 
-			if (bools[1] != null)
+			if (bools[1])
 				/* Filter list with games that have support for Windows */
 				filteredGameList = filteredGameList.Where(game => game.PlatformWindows == true).ToList();
 
-			if (bools[2] != null)
+			if (bools[2])
 				/* Filter list with games that have support for Linux */
 				filteredGameList = filteredGameList.Where(game => game.PlatformLinux == true).ToList();
 
-			if (bools[3] != null)
+			if (bools[3])
 				/* Filter list with games that have support for Mac */
 				filteredGameList = filteredGameList.Where(game => game.PlatformMac == true).ToList();
 
-			if (bools[4] != null)
+			if (bools[4])
 				/* Filter list with games that have a singleplayer mode */
 				filteredGameList = filteredGameList.Where(game => game.CategorySingleplayer == true).ToList();
 
-			if (bools[5] != null)
+			if (bools[5])
 				/* Filter list with games that have a multiplayer mode */
 				filteredGameList = filteredGameList.Where(game => game.CategoryMultiplayer == true).ToList();
 
-			if (bools[6] != null)
+			if (bools[6])
 				/* Filter list with games that have a cooperation mode */
 				filteredGameList = filteredGameList.Where(game => game.CategoryCoop == true).ToList();
 
-			if (bools[7] != null)
+			if (bools[7])
 				/* Filter list with games that have a Level Editor */
 				filteredGameList = filteredGameList.Where(game => game.CategoryIncludeLevelEditor == true).ToList();
 
-			if (bools[8] != null)
+			if (bools[8])
 				/* Filter list with games that have VR support */
 				filteredGameList = filteredGameList.Where(game => game.CategoryVRSupport == true).ToList();
 		}

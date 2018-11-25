@@ -250,7 +250,7 @@ namespace LP2P1
 			/* Variable to hold the name filter */
 			string filterName = null;
 			/* Array to hold the bool options filters */
-			string[] filterBools = new string[9];
+			bool[] filterBools = new bool[9];
 			/* Variable to hold the date filter */
 			DateTime filterDate = DateTime.MinValue;
 			/* Array to hold the int options filters */
@@ -297,58 +297,49 @@ namespace LP2P1
 						filterInts[2] = GetIntFilterValue();
 						break;
 					case "6":
-						/* If user chooses this filter, change to be different 
-						 * from null.
+						/* If user chooses this filter, change to true
 						 * Get controller support filter*/
-						filterBools[0] = "true";
+						filterBools[0] = true;
 						break;
 					case "7":
-						/* If user chooses this filter, change to be different 
-						 * from null.
+						/* If user chooses this filter, change to true
 						 * Get windows support filter*/
-						filterBools[1] = "true";
+						filterBools[1] = true;
 						break;
 					case "8":
-						/* If user chooses this filter, change to be different 
-						 * from null.
+						/* If user chooses this filter, change to true
 						 * Get Linux support filter*/
-						filterBools[2] = "true";
+						filterBools[2] = true;
 						break;
 					case "9":
-						/* If user chooses this filter, change to be different 
-						 * from null.
+						/* If user chooses this filter, change to true
 						 * Get Mac support filter*/
-						filterBools[3] = "true";
+						filterBools[3] = true;
 						break;
 					case "10":
-						/* If user chooses this filter, change to be different 
-						 * from null.
+						/* If user chooses this filter, change to true
 						 * Get singleplayer support filter*/
-						filterBools[4] = "true";
+						filterBools[4] = true;
 						break;
 					case "11":
-						/* If user chooses this filter, change to be different 
-						 * from null.
+						/* If user chooses this filter, change to true
 						 * Get multiplayer support filter*/
-						filterBools[5] = "true";
+						filterBools[5] = true;
 						break;
 					case "12":
-						/* If user chooses this filter, change to be different 
-						 * from null.
+						/* If user chooses this filter, change to true
 						 * Get coop support filter*/
-						filterBools[6] = "true";
+						filterBools[6] = true;
 						break;
 					case "13":
-						/* If user chooses this filter, change to be different 
-						 * from null.
+						/* If user chooses this filter, change to true
 						 * Get level editor support filter*/
-						filterBools[7] = "true";
+						filterBools[7] = true;
 						break;
 					case "14":
-						/* If user chooses this filter, change to be different 
-						 * from null.
+						/* If user chooses this filter, change to true
 						 * Get VR support filter*/
-						filterBools[8] = "true";
+						filterBools[8] = true;
 						break;
 				}
 				input = "";

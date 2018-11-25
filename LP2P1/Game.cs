@@ -176,7 +176,7 @@ namespace LP2P1
 		/// <returns>Returns a bool according to object equality.</returns>
         public override bool Equals(object obj)
         {
-            return this.ID.Equals(((Game)obj).ID);
+            return ID.Equals(((Game)obj).ID);
         }
 
 		/// <summary>
@@ -185,7 +185,7 @@ namespace LP2P1
 		/// <returns>Returns the ID property HashCode.</returns>
 		public override int GetHashCode()
         {
-            return this.ID.GetHashCode();
+            return ID.GetHashCode();
         }
 
         /// <summary>
@@ -193,8 +193,6 @@ namespace LP2P1
         /// </summary>
         public void DownloadImage()
 		{
-			//ProcessStartInfo myProcess = new ProcessStartInfo("image.jpg");
-
 			/* Create a WebClient Instance. At the end, close it. */
 			using (WebClient client = new WebClient())
 			{

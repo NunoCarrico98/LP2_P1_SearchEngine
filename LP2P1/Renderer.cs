@@ -140,7 +140,7 @@ namespace LP2P1
         /// <summary>
         /// Render Filter Option from the Search Engine Menu.
         /// </summary>
-        public void RenderFilterOptions(string filterName, DateTime filterDate, int[] filterInts, string[] filterBools)
+        public void RenderFilterOptions(string filterName, DateTime filterDate, int[] filterInts, bool[] filterBools)
         {
 			/* Clear console text */
 			Console.Clear();
@@ -189,7 +189,7 @@ namespace LP2P1
                 Console.WriteLine("Filter Chosen -> Value: " + filterInts[2]);
             }
 
-            if (filterBools[0] == null)
+            if (!filterBools[0])
                 Console.WriteLine("6. Controller support");
             else
             {
@@ -197,7 +197,7 @@ namespace LP2P1
                 Console.WriteLine("Filter Chosen");
             }
 
-            if (filterBools[1] == null)
+            if (!filterBools[1])
                 Console.WriteLine("7. Windows support");
             else
             {
@@ -205,7 +205,7 @@ namespace LP2P1
                 Console.WriteLine("Filter Chosen");
             }
 
-            if (filterBools[2] == null)
+            if (!filterBools[2])
                 Console.WriteLine("8. Linux support");
             else
             {
@@ -213,7 +213,7 @@ namespace LP2P1
                 Console.WriteLine("Filter Chosen");
             }
 
-            if (filterBools[3] == null)
+            if (!filterBools[3])
                 Console.WriteLine("9. Mac support");
             else
             {
@@ -221,7 +221,7 @@ namespace LP2P1
                 Console.WriteLine("Filter Chosen");
             }
 
-            if (filterBools[4] == null)
+            if (!filterBools[4])
                 Console.WriteLine("10. Singleplayer support");
             else
             {
@@ -229,7 +229,7 @@ namespace LP2P1
                 Console.WriteLine("Filter Chosen");
             }
 
-            if (filterBools[5] == null)
+            if (!filterBools[5])
                 Console.WriteLine("11. Multiplayer support");
             else
             {
@@ -237,7 +237,7 @@ namespace LP2P1
                 Console.WriteLine("Filter Chosen");
             }
 
-            if (filterBools[6] == null)
+            if (!filterBools[6])
                 Console.WriteLine("12. Coop support");
             else
             {
@@ -245,7 +245,7 @@ namespace LP2P1
                 Console.WriteLine("Filter Chosen");
             }
 
-            if (filterBools[7] == null)
+            if (!filterBools[7])
                 Console.WriteLine("13. Lever editor included");
             else
             {
@@ -253,7 +253,7 @@ namespace LP2P1
                 Console.WriteLine("Filter Chosen");
             }
 
-            if (filterBools[8] == null)
+            if (!filterBools[8])
                 Console.WriteLine("14. VR support");
             else
             {
