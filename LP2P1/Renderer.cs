@@ -114,13 +114,19 @@ namespace LP2P1
 		/// <summary>
 		/// Render Filter Option from the Search Engine Menu.
 		/// </summary>
-		public void RenderFilterOptions()
+		public void RenderFilterOptions(string filterName)
         {
             Console.Clear();
             Console.WriteLine("Filter by:");
             Console.WriteLine();
-            Console.WriteLine("1. Name (parcial match, case insensitive)");
-            Console.WriteLine("2. Release Date (since)");
+			if (filterName == null)
+				Console.WriteLine("1. Name (parcial match, case insensitive)");
+			else
+			{
+				Console.Write("1. Name (parcial match, case insensitive) - ");
+				Console.WriteLine("Filter Chosen -> Value: " + filterName );
+			}
+			Console.WriteLine("2. Release Date (since)");
             Console.WriteLine("3. Age (greater than)");
             Console.WriteLine("4. Metacritic (greater than)");
             Console.WriteLine("5. Number of recommendations (greater than)");

@@ -42,6 +42,18 @@ namespace LP2P1
 		}
 
 		/// <summary>
+		/// Method that shows the filtered list of games.
+		/// </summary>
+		public void Search()
+		{
+			/* Render list of games */
+			render.ShowSearchResults(filteredGameList);
+
+			/* Make sure list is back to having all games in it */
+			filteredGameList = gameList;
+		}
+
+		/// <summary>
 		/// Method that sorts the list of games in the correct chosen order.
 		/// </summary>
 		/// <param name="input">Player input choosing type of Sort.</param>
@@ -116,50 +128,69 @@ namespace LP2P1
 			}
 		}
 
-		public void Filter(string name, DateTime date, int[] ints, bool[] bools)
+		/// <summary>
+		/// Method that filters the list according to the user inputs.
+		/// </summary>
+		/// <param name="filters">Array of strings containing the user desired 
+		/// filters</param>
+		public void Filter(string name, DateTime date, int[] ints, string[] bools)
 		{
-			/* Filter list according to the given name (partial or full name) */
-			filteredGameList = filteredGameList.Where(game =>
-			game.Name.ToLower().Contains(name.ToLower())).ToList();
+			if(name != null)
+				/* Filter list according to the given name (partial or full name) */
+				filteredGameList = filteredGameList.Where(game =>
+				game.Name.ToLower().Contains(name.ToLower())).ToList();
 
-			/* Filter list according to the given date */
-			filteredGameList = filteredGameList.Where(game => game.ReleaseDate > date).ToList();
+			if(date != null)
+				/* Filter list according to the given date */
+				filteredGameList = filteredGameList.Where(game => game.ReleaseDate > date).ToList();
 
-			/* Filter list according to the given requirement age */
-			filteredGameList = filteredGameList.Where(game => game.RequiredAge > ints[0]).ToList();
+			if(ints[0] != 0)
+				/* Filter list according to the given requirement age */
+				filteredGameList = filteredGameList.Where(game => game.RequiredAge > ints[0]).ToList();
 
-			/* Filter list according to the given metacritic score */
-			filteredGameList = filteredGameList.Where(game => game.MetaCritic > ints[1]).ToList();
+			if (ints[1] != 0)
+				/* Filter list according to the given metacritic score */
+				filteredGameList = filteredGameList.Where(game => game.MetaCritic > ints[1]).ToList();
 
-			/* Filter list according to the given number of recommendations */
-			filteredGameList = filteredGameList.Where(game => game.RecommendationCount > ints[2]).ToList();
+			if (ints[2] != 0)
+				/* Filter list according to the given number of recommendations */
+				filteredGameList = filteredGameList.Where(game => game.RecommendationCount > ints[2]).ToList();
 
-			/* Filter list with games that have controller support */
-			filteredGameList = filteredGameList.Where(game => game.ControllerSupport == bools[0]).ToList();
+			if(bools[0] != null)
+				/* Filter list with games that have controller support */
+				filteredGameList = filteredGameList.Where(game => game.ControllerSupport == true).ToList();
 
-			/* Filter list with games that have support for Windows */
-			filteredGameList = filteredGameList.Where(game => game.PlatformWindows == bools[1]).ToList();
+			if (bools[1] != null)
+				/* Filter list with games that have support for Windows */
+				filteredGameList = filteredGameList.Where(game => game.PlatformWindows == true).ToList();
 
-			/* Filter list with games that have support for Linux */
-			filteredGameList = filteredGameList.Where(game => game.PlatformLinux == bools[2]).ToList();
+			if (bools[2] != null)
+				/* Filter list with games that have support for Linux */
+				filteredGameList = filteredGameList.Where(game => game.PlatformLinux == true).ToList();
 
-			/* Filter list with games that have support for Mac */
-			filteredGameList = filteredGameList.Where(game => game.PlatformMac == bools[3]).ToList();
+			if (bools[3] != null)
+				/* Filter list with games that have support for Mac */
+				filteredGameList = filteredGameList.Where(game => game.PlatformMac == true).ToList();
 
-			/* Filter list with games that have a singleplayer mode */
-			filteredGameList = filteredGameList.Where(game => game.CategorySingleplayer == bools[4]).ToList();
+			if (bools[4] != null)
+				/* Filter list with games that have a singleplayer mode */
+				filteredGameList = filteredGameList.Where(game => game.CategorySingleplayer == true).ToList();
 
-			/* Filter list with games that have a multiplayer mode */
-			filteredGameList = filteredGameList.Where(game => game.CategoryMultiplayer == bools[5]).ToList();
+			if (bools[5] != null)
+				/* Filter list with games that have a multiplayer mode */
+				filteredGameList = filteredGameList.Where(game => game.CategoryMultiplayer == true).ToList();
 
-			/* Filter list with games that have a cooperation mode */
-			filteredGameList = filteredGameList.Where(game => game.CategoryCoop == bools[6]).ToList();
+			if (bools[6] != null)
+				/* Filter list with games that have a cooperation mode */
+				filteredGameList = filteredGameList.Where(game => game.CategoryCoop == true).ToList();
 
-			/* Filter list with games that have a Level Editor */
-			filteredGameList = filteredGameList.Where(game => game.CategoryIncludeLevelEditor == bools[7]).ToList();
+			if (bools[7] != null)
+				/* Filter list with games that have a Level Editor */
+				filteredGameList = filteredGameList.Where(game => game.CategoryIncludeLevelEditor == true).ToList();
 
-			/* Filter list with games that have VR support */
-			filteredGameList = filteredGameList.Where(game => game.CategoryVRSupport == bools[8]).ToList();
+			if (bools[8] != null)
+				/* Filter list with games that have VR support */
+				filteredGameList = filteredGameList.Where(game => game.CategoryVRSupport == true).ToList();
 		}
 	}
 }

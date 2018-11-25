@@ -101,7 +101,7 @@ namespace LP2P1
 						RetrieveFilterInput();
 						break;
 					case "3":
-						render.ShowSearchResults(gameList);
+						searchEngine.Search();
 						break;
 				}
 
@@ -134,15 +134,15 @@ namespace LP2P1
 
 		public void RetrieveFilterInput()
 		{
-			string filterName = "";
-			DateTime filterDate = new DateTime();
+			string filterName = null;
+			DateTime filterDate = DateTime.MinValue;
 			int[] filterInts = new int[3];
-			bool[] filterBools = new bool[9];
+			string[] filterBools = new string[9];
 			string input = "";
 
 			while (true)
 			{
-				render.RenderFilterOptions();
+				render.RenderFilterOptions(filterName);
 				input = Console.ReadLine();
 
 				if (input == "15") break;
@@ -171,39 +171,39 @@ namespace LP2P1
 						break;
 					case "6":
 						render.ShowFilterByControllerSupport();
-						filterBools[0] = GetBoolFilterValue();
+						filterBools[0] = "true";
 						break;
 					case "7":
 						render.ShowFilterByWindowsSupport();
-						filterBools[1] = GetBoolFilterValue();
+						filterBools[1] = "true";
 						break;
 					case "8":
 						render.ShowFilterByLinuxSupport();
-						filterBools[2] = GetBoolFilterValue();
+						filterBools[2] = "true";
 						break;
 					case "9":
 						render.ShowFilterByMacSupport();
-						filterBools[3] = GetBoolFilterValue();
+						filterBools[3] = "true";
 						break;
 					case "10":
 						render.ShowFilterBySingleplayerSupport();
-						filterBools[4] = GetBoolFilterValue();
+						filterBools[4] = "true";
 						break;
 					case "11":
 						render.ShowFilterByMultiplayerSupport();
-						filterBools[5] = GetBoolFilterValue();
+						filterBools[5] = "true";
 						break;
 					case "12":
 						render.ShowFilterByCoopSupport();
-						filterBools[6] = GetBoolFilterValue();
+						filterBools[6] = "true";
 						break;
 					case "13":
 						render.ShowFilterByLevelEditor();
-						filterBools[7] = GetBoolFilterValue();
+						filterBools[7] = "true";
 						break;
 					case "14":
 						render.ShowFilterByVRSupport();
-						filterBools[8] = GetBoolFilterValue();
+						filterBools[8] = "true";
 						break;
 				}
 				input = "";
@@ -254,28 +254,6 @@ namespace LP2P1
 			}
 
 			return n;
-		}
-
-		private bool GetBoolFilterValue()
-		{
-			bool b = false;
-			string input = "";
-
-			while (true)
-			{
-				input = Console.ReadLine();
-				if (bool.TryParse(input, out bool value))
-				{
-					b = value;
-					break;
-				}
-				else
-					render.ShowInvalidInputMesage();
-
-				input = "";
-			}
-
-			return b;
 		}
 	}
 }
