@@ -1,4 +1,4 @@
-# 1o Projeto de LP2 (2018)
+﻿# 1o Projeto de LP2 (2018)
 
 ## Our solution
 
@@ -31,11 +31,11 @@ After each search or if the user goes back to the previous menu, the filtered li
 
 ### Flowchart
 
-![Flowchart](https://i.imgur.com/qhmfBD6.png)
+![Flowchart](https://gitlab.com/rui-martins/lp2p1/uploads/39b8a56be11c03c6e57e18a694bb8402/LP2_P1_Flowchart.png)
 
 ### UML Diagram
 
-![Diagram(UML)](https://i.imgur.com/iQTKuyt.png)
+![Diagram(UML)](https://gitlab.com/rui-martins/lp2p1/uploads/8285d7a13e189ddb47332fdbba321a08/LP2_P1_UML.png)
 
 ## Conclusions
 
