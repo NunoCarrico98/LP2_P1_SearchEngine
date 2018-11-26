@@ -1,7 +1,4 @@
-# 2o Projeto de LP1 2018 - LP1 RPG
-
-* Nuno Carriço - a21701393
-* Rui Martins - a21701462
+# 1o Projeto de LP2 (2018)
 
 ## Our solution
 
