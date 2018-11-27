@@ -33,7 +33,7 @@ After each search or if the user goes back to the previous menu, the filtered li
 
 ### UML Diagram
 
-![Diagram(UML)](https://gitlab.com/rui-martins/lp2p1/uploads/b750e25706994b7f25adbd1d03bab1af/LP2_P1_UML.png)
+![Diagram(UML)](https://gitlab.com/rui-martins/lp2p1/uploads/b1122a7706e2e3a4b1b1266b507dead5/LP2_P1_UML.png)
 
 ## Conclusions
 
