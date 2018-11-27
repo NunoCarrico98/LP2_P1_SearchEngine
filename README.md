@@ -11,11 +11,9 @@ Rui created `ReadFromFile` (read from file and turn each object into Game) and `
 Both worked on all the classes as the project kept improving.
 
 Extras were implemented by both.
-**Rui
-Show downloaded image to user.
+* Rui: Show downloaded image to user.
 
-**Nuno
-Show help website if user chooses so.
+* Nuno: Show help website if user chooses so.
 
 ### Architecture
 
