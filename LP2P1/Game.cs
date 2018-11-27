@@ -198,12 +198,25 @@ namespace LP2P1
 			{
 				/* If a link for the image download exists */
 				if (HeaderImage != null)
-					/* Download image from the web */
-					client.DownloadFile(HeaderImage, "image.jpg");
+                {
+                    /* Try to catch an exception */
+                    try
+                    {
+                        /* Download image from the web */
+                        client.DownloadFile(HeaderImage, "image.jpg");
+                        /* Open image */
+                        Process.Start("image.jpg");
+                    }
+                    /* If WebException pops, it means the user has problems
+                     * with the Internet connection */
+                    catch (WebException)
+                    {
+                        /* Show respective message */
+                        Console.Error.WriteLine("Image could not be downloaded " +
+                            "due to an internet connection problem.");
+                    }
+                }
 			}
-
-			/* Open image */
-			Process.Start("image.jpg");
 		}
 
 		/// <summary>
